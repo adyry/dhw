@@ -1,0 +1,113 @@
+// <div class="header__logo">
+//     <!-- <a href="<?php echo home_url(); ?>" class="header__logo"> -->
+//         <img src="<?php header_image(); ?>"
+//             height="<?php echo get_custom_header()->height; ?>"
+//             width="<?php echo get_custom_header()->width; ?>" alt="" />
+//     <!-- </a> -->
+// </div>
+// <div class="header__text-and-menu">
+//     <div class="header__text">
+//         <a class="header__home" href="<?php echo home_url(); ?>">
+//            <?php bloginfo('name'); ?>
+//         </a>
+//         <span class="header__description">
+//           <?php bloginfo('description'); ?>
+//         </span>
+//     </div>
+//     <div class="header__menu-placeholder">
+//         <ul class="header__menu" role="navigation">
+//             <?php html5blank_nav(); ?>
+//         </ul>
+//     </div>
+// </div>
+
+.header {
+    display: flex;
+
+    &__logo {
+
+    }
+
+    &__text-and-menu {
+        flex: 1;
+    }
+
+    &__text {
+        padding: 0 0 10px;
+    }
+
+    &__home {
+        padding: 10px 0;
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+
+    &__description {
+        color: grey;
+        font-size: 10px;
+    }
+
+    &__menu-placeholder {
+        flex-basis: 100%;
+        height: 58px;
+        color: #d6937a
+
+    }
+
+    &__menu {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: flex-start;
+        background-color: black;
+        z-index: 999;
+
+
+
+        &--fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-item {
+            padding: 8px 5px;
+        }
+
+        .current-menu-item {
+            background-color: hsla(0, 0%, 100%, 0.67);
+            box-sizing: border-box;
+        }
+
+        .current-menu-ancestor {
+            background-color: hsla(0, 0%, 100%, 0.67);
+        }
+
+        .sub-menu {
+            display: none;
+        }
+
+
+    }
+
+    &__fixed-logo {
+        display: none;
+    }
+
+
+
+
+}
+body {
+
+}
+footer {
+
+}

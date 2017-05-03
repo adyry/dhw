@@ -1,0 +1,31 @@
+{
+  "name": "gulp-environment",
+  "version": "1.0.0",
+  "description": "Gulp environment with haml, sass, live preview, autoprefixer",
+  "main": "gulp-environment",
+  "dependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp-sass": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adyry/gulp-environment.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "adyry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adyry/gulp-environment/issues"
+  },
+  "homepage": "https://github.com/adyry/gulp-environment#readme"
+}
