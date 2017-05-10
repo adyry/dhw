@@ -98,7 +98,8 @@ function html5blank_header_scripts()
 
         wp_deregister_script('jquery');
 
-        wp_register_script('jquery3', 'https://code.jquery.com/jquery-3.2.1.slim.min.js' , array(), '3.2.1');
+        wp_register_script('jquery3',  get_template_directory_uri() . '/js/lib/jquery-3.2.1.slim.min.js' , array(), '3.2.1');
+        // wp_register_script('jquery3', 'https://code.jquery.com/jquery-3.2.1.slim.min.js' , array(), '3.2.1');
         wp_enqueue_script('jquery3');
 
         wp_register_script('custom', get_template_directory_uri() . '/js/scripts.js');

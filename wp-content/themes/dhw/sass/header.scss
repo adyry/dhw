@@ -1,25 +1,4 @@
-// <div class="header__logo">
-//     <!-- <a href="<?php echo home_url(); ?>" class="header__logo"> -->
-//         <img src="<?php header_image(); ?>"
-//             height="<?php echo get_custom_header()->height; ?>"
-//             width="<?php echo get_custom_header()->width; ?>" alt="" />
-//     <!-- </a> -->
-// </div>
-// <div class="header__text-and-menu">
-//     <div class="header__text">
-//         <a class="header__home" href="<?php echo home_url(); ?>">
-//            <?php bloginfo('name'); ?>
-//         </a>
-//         <span class="header__description">
-//           <?php bloginfo('description'); ?>
-//         </span>
-//     </div>
-//     <div class="header__menu-placeholder">
-//         <ul class="header__menu" role="navigation">
-//             <?php html5blank_nav(); ?>
-//         </ul>
-//     </div>
-// </div>
+$menu-h: 40px;
 
 .header {
     display: flex;
@@ -50,19 +29,17 @@
 
     &__menu-placeholder {
         flex-basis: 100%;
-        height: 58px;
+        height: $menu-h;
         color: #d6937a
-
     }
 
     &__menu {
         flex-basis: 100%;
         display: flex;
         justify-content: flex-start;
-        background-color: black;
+        background-color: rgb(90, 98, 200);
         z-index: 999;
-
-
+        height: $menu-h;
 
         &--fixed {
             position: fixed;
@@ -78,7 +55,18 @@
         }
 
         .menu-item {
-            padding: 8px 5px;
+            padding: 8px 4px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-item:hover {
+            background-color: pink;
+            > ul {
+                visibility:visible;
+                opacity:1;
+            }
         }
 
         .current-menu-item {
@@ -91,18 +79,21 @@
         }
 
         .sub-menu {
-            display: none;
+            position: absolute;
+            background-color: grey;
+            top: $menu-h;
+            left: 0;
+            position:absolute;
+            visibility:hidden;
+            opacity:0;
+            transition:400ms ease;
+            min-width: 100px;
         }
-
-
     }
 
     &__fixed-logo {
         display: none;
     }
-
-
-
 
 }
 body {

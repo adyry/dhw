@@ -1,6 +1,6 @@
 jQuery(document).ready(( $ ) => {
     menu_docker('header__menu');
-    menu_drop();
+    // menu_drop();
 });
 
 menu_docker = (cssClassName) => {
@@ -19,12 +19,18 @@ menu_docker = (cssClassName) => {
     });
 }
 
-menu_drop = () => {
-    const top_li = $('.header__menu > li.menu-item-has-children').click((event) => {
-        $('.sub-menu').show();
-        $('.header__menu').toggleClass('header__menu--active');
-    })
-    const hide = $('.header__menu--active').click(() => {
-        
-    })
-}
+
+// function showmenu() {
+//     $(this).children('ul').show()
+// }
+//
+// function hidemenu() {
+//     // setTimeout(() => {
+//         $('ul.sub-menu').hide()
+//     // }, 3000);
+// }
+//
+// menu_drop = () => {
+//     $('.menu-item-has-children').click(showmenu).hover(showmenu);
+//     $('.header__menu').mouseleave(hidemenu)
+// }
