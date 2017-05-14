@@ -10,7 +10,7 @@ gulp.task('serve', ['sass'], function() {
     open: 'external',
     host: 'dhw.localhost:80',
   });
-    gulp.watch(`${theme_dir}sass/*.scss`, ['sass']);
+    gulp.watch(`${theme_dir}sass/**/*.scss`, ['sass']);
     gulp.watch(`${theme_dir}/**/*.*`).on('change', browserSync.reload);
 });
 

@@ -28,11 +28,11 @@
 		<div class="wrapper">
 			<header class="header clear" role="banner">
 					<div class="header__logo">
-						<!-- <a href="<?php echo home_url(); ?>" class="header__logo"> -->
+						<a href="<?php echo home_url(); ?>" class="header__logo">
 							<img src="<?php header_image(); ?>"
 								height="<?php echo get_custom_header()->height; ?>"
 								width="<?php echo get_custom_header()->width; ?>" alt="" />
-						<!-- </a> -->
+						</a>
 					</div>
 					<div class="header__text-and-menu">
 						<div class="header__text">
@@ -44,12 +44,13 @@
 					  		</span>
 						</div>
 						<div class="header__menu-placeholder">
-
 							<ul class="header__menu" role="navigation">
 								<li class="header__fixed-logo">
-									<img src="<?php header_image(); ?>"
-										height="40px"
-										width="40px" alt="" />
+									<a href="<?php echo home_url(); ?>">
+										<img src="<?php header_image(); ?>"
+											height="40px"
+											width="40px" alt="" />
+									</a>
 								</li>
 								<?php html5blank_nav(); ?>
 							</ul>
