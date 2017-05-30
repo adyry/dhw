@@ -1,0 +1,53 @@
+.sidebar_widget, .footer_widget {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class*=widget_] {
+    margin: 10px 0;
+}
+
+.footer_widget {
+    max-width: $max-width;
+    justify-content: center;
+    margin: 0 auto;
+
+    [class*=widget_] {
+        box-sizing: border-box;
+        padding: 20px;
+        // background-color: $transp;
+        // background-clip: content-box;
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+    .footer_widget {
+        [class*=widget_] {
+            flex: 0 0 25%;
+        }
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    .footer_widget {
+        [class*=widget_] {
+            flex: 0 0 33%;
+        }
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .footer_widget {
+        [class*=widget_] {
+            flex: 0 0 50%;
+        }
+    }
+}
+
+@media only screen and (max-width : 480px) {
+    .footer_widget {
+        [class*=widget_] {
+            flex: 0 0 100%;
+        }
+    }
+}

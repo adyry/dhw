@@ -156,7 +156,7 @@ h1 {
   flex-wrap: wrap;
   padding: 0 20px;
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto 20px auto; }
   .main-aside-wrapper div {
     box-sizing: border-box; }
   .main-aside-wrapper__main {
@@ -200,6 +200,44 @@ h1 {
     bottom: 0;
     background-color: rgba(117, 167, 189, 0.54);
     width: 100%; }
+
+.sidebar_widget, .footer_widget {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+[class*=widget_] {
+  margin: 10px 0; }
+
+.footer_widget {
+  max-width: 1200px;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto; }
+  .footer_widget [class*=widget_] {
+    box-sizing: border-box;
+    padding: 20px; }
+
+@media only screen and (min-width: 1024px) {
+  .footer_widget [class*=widget_] {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%; } }
+
+@media only screen and (max-width: 1024px) {
+  .footer_widget [class*=widget_] {
+    -ms-flex: 0 0 33%;
+    flex: 0 0 33%; } }
+
+@media only screen and (max-width: 768px) {
+  .footer_widget [class*=widget_] {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%; } }
+
+@media only screen and (max-width: 480px) {
+  .footer_widget [class*=widget_] {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%; } }
 
 .wrapper {
   width: 100%; }
