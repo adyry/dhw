@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-	<main role="main">
+<main class="main-aside-wrapper__main" role="main">
+
 	<!-- section -->
 	<section>
 

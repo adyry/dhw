@@ -1,0 +1,123 @@
+$menu-h: 40px;
+
+.header {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    &__logo {
+        img {
+            filter: invert(100%);
+        }
+
+    }
+
+    &__text-and-menu {
+        flex: 1;
+    }
+
+    &__text {
+        padding: 0 0 10px;
+    }
+
+    &__home {
+        padding: 10px 0;
+        text-decoration: none;
+        color: $header-text;
+        display: block;
+        font-family: 'Abril Fatface', cursive;
+        font-size: 40px;
+    }
+
+    &__description {
+        color: $header-desc;
+        font-size: 18px;
+
+    }
+
+    &__menu-placeholder {
+        flex-basis: 100%;
+        height: $menu-h;
+    }
+
+    &__menu {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: flex-start;
+        background-color: $menu-bg;
+        z-index: 999;
+        height: $menu-h;
+
+        &--fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: $menu-bg-fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: $menu-item-txt;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+
+        .menu-item {
+            padding: 8px 6px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: $menu-item;
+        }
+
+        .menu-item:hover {
+            background-color: $menu-item-hover;
+            > a {
+                color: $menu-item-hover-txt;
+            }
+
+            > ul {
+                visibility:visible;
+                opacity:1;
+            }
+        }
+
+        .current-menu-item, .current-menu-ancestor {
+            background-color: $menu-item-active;
+            box-sizing: border-box;
+
+            > a {
+                color: $menu-item-active-txt;
+            }
+        }
+
+
+        .sub-menu {
+            position: absolute;
+            background-color: $menu-submenu;
+
+            top: $menu-h;
+            left: 0;
+            position:absolute;
+            visibility:hidden;
+            opacity:0;
+            transition: opacity 400ms ease;
+            min-width: 170px;
+            padding: 10px;
+
+            a {
+                color: $menu-submenu-txt;
+            }
+        }
+    }
+
+    &__fixed-logo {
+        display: none;
+        img {
+            filter: invert(100%);
+        }
+    }
+
+}

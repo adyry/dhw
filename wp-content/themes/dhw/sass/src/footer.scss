@@ -1,0 +1,14 @@
+.footer {
+    background-color: $footer-bg;
+    color: $footer-txt;
+    padding: 30px;
+
+    a {
+        color: $footer-a;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $footer-a-hover;
+    }
+}

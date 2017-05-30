@@ -1,16 +1,15 @@
+	<aside class="main-aside-wrapper__aside">
+		<?php get_template_part('aside'); ?>
+	</aside>
 </div>
+
 			<footer class="footer" role="contentinfo">
 
-
-					<?php get_template_part('searchform'); ?>
-
-					<div class="sidebar-widget">
+					<div class="footer_widget">
 						<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
 					</div>
 
-					<div class="sidebar-widget">
-						<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')) ?>
-					</div>
+					
 
 
 

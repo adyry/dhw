@@ -121,6 +121,8 @@ function html5blank_styles()
 {
     wp_register_style('mh', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('mh'); // Enqueue it!
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Abril+Fatface|Old+Standard+TT|Raleway:300,300i,400', false );
+
 }
 
 // Register HTML5 Blank Navigation
@@ -175,8 +177,8 @@ if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Footer widget', 'html5blank'),
+        'description' => __('Widget in footer', 'html5blank'),
         'id' => 'widget-area-1',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -186,8 +188,8 @@ if (function_exists('register_sidebar'))
 
     // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 2', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Sidebar Widget', 'html5blank'),
+        'description' => __('Widget in sidebar', 'html5blank'),
         'id' => 'widget-area-2',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',

@@ -7,4 +7,5 @@
 			<?php get_template_part('pagination'); ?>
 		</section>
 	</main>
+
 <?php get_footer(); ?>
