@@ -1,39 +1,44 @@
 $wine: #651e1e;
-$vdgold: #442b2b;
-$dgold: #605555;
-$gold: #7c6b6b;
-$lgold: #e3dbdb;
-$vlgold: #ececec;
+$vd: #442b2b;
+$drk: #605555;
+$medium: #7c6b6b;
+$lt: #e3dbdb;
+$vlt: #ececec;
 $skin: #e7e7e7;
+$transp: rgba(0,0,0,0.3);
 
 $bg: $wine;
 
-$header-text: $vlgold;
-$header-desc: $vlgold;
+$header-text: $vlt;
+$header-desc: $vlt;
 
 $menu-bg: $wine;
-$menu-bg-fixed: $vdgold;
+$menu-bg-fixed: $vd;
 
 $menu-item: none;
-$menu-item-txt: white;
+$menu-item-txt: $skin;
 
-$menu-submenu: $lgold;
-$menu-submenu-txt: $vdgold;
+$menu-submenu: $lt;
+$menu-submenu-txt: $vd;
 
-$menu-item-hover: $dgold;
-$menu-item-hover-txt: white;
+$menu-item-hover: $drk;
+$menu-item-hover-txt: $skin;
 
 $menu-item-active: $skin;
 $menu-item-active-txt: $wine;
 
 
-
 $post-bg: $skin;
-$post-col: $vdgold;
-$post-a: $dgold;
+$post-col: $vd;
+$post-a: $drk;
 $post-a-hov: $wine;
 
-$footer-bg: $lgold;
-$footer-txt: $dgold;
-$footer-a: $dgold;
+$footer-bg: $lt;
+$footer-txt: $drk;
+$footer-a: $drk;
 $footer-a-hover: $wine;
+
+$aside-bg: $transp;
+$aside-txt: $skin;
+$aside-url: $lt;
+$aside-url-hover: $vlt;
