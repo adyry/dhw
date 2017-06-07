@@ -1,6 +1,6 @@
-	<aside class="main-aside-wrapper__aside">
-		<?php get_template_part('aside'); ?>
-	</aside>
+
+	<?php get_template_part('aside'); ?>
+
 </div>
 
 			<footer class="footer" role="contentinfo">
@@ -9,7 +9,7 @@
 						<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
 					</div>
 
-					
+
 
 
 

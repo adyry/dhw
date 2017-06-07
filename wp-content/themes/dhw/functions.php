@@ -43,8 +43,6 @@ if (function_exists('add_theme_support'))
 	'default-image'			=> get_template_directory_uri() . '/img/headers/default.jpg',
 	'header-text'			=> false,
 	'default-text-color'		=> '000',
-	'width'				=> 200,
-	'height'			=> 200,
 	'random-default'		=> false,
 	'wp-head-callback'		=> $wphead_cb,
 	'admin-head-callback'		=> $adminhead_cb,
