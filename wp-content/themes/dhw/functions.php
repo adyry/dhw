@@ -54,6 +54,8 @@ if (function_exists('add_theme_support'))
 
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+
+    add_theme_support('post-formats', array( 'video' ) );
 }
 
 /*------------------------------------*\
@@ -345,6 +347,7 @@ add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comment
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('init', 'create_post_type_video');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -397,8 +400,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
 function create_post_type_html5()
 {
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
+
     register_post_type('html5-blank', // Register Custom Post Type
         array(
         'labels' => array(
@@ -431,6 +433,21 @@ function create_post_type_html5()
         ) // Add Category and Post Tags support
     ));
 }
+
+function create_post_type_video()
+{
+    register_post_type('deals',
+        array(
+            'labels' => array(
+                'name' => __( 'Deals' ),
+                'singular_name' => __( 'Deal' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            )
+        );
+}
+
 
 /*------------------------------------*\
 	ShortCode Functions
