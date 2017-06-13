@@ -346,8 +346,6 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
-add_action('init', 'create_post_type_video');
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -397,56 +395,83 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
 
-    register_post_type('html5-blank', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
-}
+// Register Custom Post Type
+function video_post() {
 
-function create_post_type_video()
-{
-    register_post_type('deals',
-        array(
-            'labels' => array(
-                'name' => __( 'Deals' ),
-                'singular_name' => __( 'Deal' )
-            ),
-            'public' => true,
-            'has_archive' => true,
-            )
-        );
+	$labels = array(
+		'name'                  => _x( 'Videos', 'Post Type General Name', 'vid' ),
+		'singular_name'         => _x( 'Video', 'Post Type Singular Name', 'vid' ),
+		'menu_name'             => __( 'Videos', 'vid' ),
+		'name_admin_bar'        => __( 'Videos', 'vid' ),
+		'archives'              => __( 'Video Archives', 'vid' ),
+		'attributes'            => __( 'Item Attributes', 'vid' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'vid' ),
+		'all_items'             => __( 'All Items', 'vid' ),
+		'add_new_item'          => __( 'Add New Item', 'vid' ),
+		'add_new'               => __( 'Add New', 'vid' ),
+		'new_item'              => __( 'New Item', 'vid' ),
+		'edit_item'             => __( 'Edit Item', 'vid' ),
+		'update_item'           => __( 'Update Item', 'vid' ),
+		'view_item'             => __( 'View Item', 'vid' ),
+		'view_items'            => __( 'View Items', 'vid' ),
+		'search_items'          => __( 'Search Item', 'vid' ),
+		'not_found'             => __( 'Not found', 'vid' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'vid' ),
+		'featured_image'        => __( 'Featured Image', 'vid' ),
+		'set_featured_image'    => __( 'Set featured image', 'vid' ),
+		'remove_featured_image' => __( 'Remove featured image', 'vid' ),
+		'use_featured_image'    => __( 'Use as featured image', 'vid' ),
+		'insert_into_item'      => __( 'Insert into item', 'vid' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'vid' ),
+		'items_list'            => __( 'Items list', 'vid' ),
+		'items_list_navigation' => __( 'Items list navigation', 'vid' ),
+		'filter_items_list'     => __( 'Filter items list', 'vid' ),
+	);
+	$args = array(
+		'label'                 => __( 'Video', 'vid' ),
+		'description'           => __( 'Video post', 'vid' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title'),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-video-alt2',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'video_post', $args );
+
 }
+add_action( 'init', 'video_post', 0 );
+
+// add_action('wp_insert_post', 'set_default_custom_fields');
+// function set_default_custom_fields($post_id){
+//     if ( $_GET['post_type'] == 'video_post' ) {
+//         add_post_meta($post_id, 'Fiefld Name', '', true);
+//         add_post_meta($post_id, 'Anotaher Field Name', '', true);
+//     }
+//     return true;
+// }
+
+
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'video_post'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 
 
 /*------------------------------------*\
