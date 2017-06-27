@@ -18,10 +18,15 @@
     &__vid-wrapper {
         display: flex;
         align-content: flex-start;
+        flex-wrap: wrap;
     }
 
     &__thumbnail-wrap {
         flex: 0 1 55%;
+
+        &--single {
+                flex: 1 1 100%;
+        }
     }
 
     &__thumbnail-figure {
@@ -44,6 +49,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        &--single {
+            flex: 1 1 100%;
+            margin: 20px 0 30px 0;
+            padding: 0;
+        }
     }
 
     &__description {
@@ -75,6 +86,20 @@
 
         &:hover {
             filter: blur(0px) brightness(100%);
+        }
+    }
+}
+
+@media all and (max-width : $sm-breakpoint) {
+    .vidarch {
+        &__thumbnail-wrap {
+            flex: 1 1 100%;
+        }
+
+        &__title-and-text-wrap {
+            flex: 1 1 100%;
+            margin: 20px 0 30px 0;
+            padding: 0;
         }
     }
 }

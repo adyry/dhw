@@ -4,67 +4,77 @@
 	<!-- section -->
 	<section>
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+		<?php
+		function get_string_between($string, $start, $end){
+			$string = ' ' . $string;
+			$ini = strpos($string, $start);
+			if ($ini == 0) return '';
+			$ini += strlen($start);
+			$len = strpos($string, $end, $ini) - $ini;
+			return substr($string, $ini, $len);
+		}
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		if (have_posts()): while (have_posts()) : the_post(); ?>
+			<?php $fullstring = get_field('youtube_url') . '&';
+			$parsed = get_string_between($fullstring, '?v=', '&');	?>
+			<!-- article -->
+			<article id="post-<?php the_ID(); ?>" <?php post_class("vidarch__post"); ?> >
+				<h2 class="vidarch__title">
+					<?php the_title(); ?>
+				</h2>
+				<div class="vidarch__vid-wrapper">
+					<div class="vidarch__thumbnail-wrap vidarch__thumbnail-wrap--single">
+						<figure class="vidarch__thumbnail-figure" title="<?php the_title(); ?>">
+							<?php if ( has_post_thumbnail()) : ?>
+									<?php the_post_thumbnail(array(),array('class' => "vidarch__thumbnail")); ?>
+							<?php else: ?>
+								<img src="https://img.youtube.com/vi/<?php echo $parsed ?>/maxresdefault.jpg" class="vidarch__thumbnail">
+							<?php endif; ?>
+							<figure class="vidarch__play-icon"></figure>
+						</figure>
+					</div>
+					<div class="vidarch__title-and-text-wrap vidarch__title-and-text-wrap--single">
+						<div class="vidarch__title-and-text">
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
+							<span class="vidarch__description">
+								<?php echo get_field('description'); ?>
+							</span>
+						</div>
+						<div class="vidarch__meta">
+							<span class="date"><?php the_time('j F Y'); ?>,</span>
+							<span class="author"> <?php the_author_posts_link(); ?>.</span><br />
+							<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave comment', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+							<?php edit_post_link(); ?>
+						</div>
+					</div>
+				</div>
+				<div class="youtube-player-overlay">
+				    <div class="youtube-player-overlay__video">
+						<div class="youtube-player-overlay__video-aspecter">
+				        	<iframe id="youtube-player" class="youtube-player-overlay__player" src="https://www.youtube.com/embed/<?php echo $parsed ?>?enablejsapi=1"  width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+						<!-- <div class="youtube-player-overlay__description">
+							<?php // echo get_field('description'); ?>
+						</div> -->
+				        <div class="youtube-player-overlay__close">
+				            x
+				        </div>
+				    </div>
+				</div>
+			</article>
+			<!-- /article -->
 
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
+		<?php endwhile; ?>
 
-			<?php
-			function get_string_between($string, $start, $end){
-			    $string = ' ' . $string;
-			    $ini = strpos($string, $start);
-			    if ($ini == 0) return '';
-			    $ini += strlen($start);
-			    $len = strpos($string, $end, $ini) - $ini;
-			    return substr($string, $ini, $len);
-			}
+		<?php else: ?>
 
-			$fullstring = get_field('youtube_url') . '&';
-			$parsed = get_string_between($fullstring, '?v=', '&');
-			?>
+			<!-- article -->
+			<article>
+				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+			</article>
+			<!-- /article -->
 
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $parsed ?>" frameborder="0" allowfullscreen></iframe>
-
-			<?php the_field('description'); ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
-
-		</article>
-		<!-- /article -->
-
-	<?php endwhile; ?>
-
-	<?php else: ?>
-
-		<!-- article -->
-		<article>
-
-			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
-
-		</article>
-		<!-- /article -->
-
-	<?php endif; ?>
+		<?php endif; ?>
 
 	</section>
 	<!-- /section -->
