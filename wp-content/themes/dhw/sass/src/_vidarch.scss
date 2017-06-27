@@ -17,11 +17,25 @@
 
     &__vid-wrapper {
         display: flex;
-
+        align-content: flex-start;
     }
 
     &__thumbnail-wrap {
         flex: 0 1 55%;
+    }
+
+    &__thumbnail-figure {
+        position: relative;
+    }
+
+    &__play-icon {
+        background: url(./img/play.png) no-repeat center center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events:none;
     }
 
     &__title-and-text-wrap {
@@ -55,5 +69,12 @@
 
     &__thumbnail {
         width: 100%;
+        filter: blur(3px) brightness(50%);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            filter: blur(0px) brightness(100%);
+        }
     }
 }

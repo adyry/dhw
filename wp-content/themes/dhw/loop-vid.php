@@ -14,13 +14,16 @@ if (have_posts()): while (have_posts()) : the_post(); ?>
 	<!-- article -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class("vidarch__post"); ?> >
 		<div class="vidarch__vid-wrapper">
-			<figure class="vidarch__thumbnail-wrap" title="<?php the_title(); ?>">
-				<?php if ( has_post_thumbnail()) : ?>
-						<?php the_post_thumbnail(array(),array('class' => "vidarch__thumbnail")); ?>
-				<?php else: ?>
-					<img src="https://img.youtube.com/vi/<?php echo $parsed ?>/maxresdefault.jpg" class="vidarch__thumbnail">
-				<?php endif; ?>
-			</figure>
+			<div class="vidarch__thumbnail-wrap">
+				<figure class="vidarch__thumbnail-figure" title="<?php the_title(); ?>">
+					<?php if ( has_post_thumbnail()) : ?>
+							<?php the_post_thumbnail(array(),array('class' => "vidarch__thumbnail")); ?>
+					<?php else: ?>
+						<img src="https://img.youtube.com/vi/<?php echo $parsed ?>/maxresdefault.jpg" class="vidarch__thumbnail">
+					<?php endif; ?>
+					<figure class="vidarch__play-icon"></figure>
+				</figure>
+			</div>
 			<div class="vidarch__title-and-text-wrap">
 				<div class="vidarch__title-and-text">
 					<h2 class="vidarch__title">
@@ -38,18 +41,19 @@ if (have_posts()): while (have_posts()) : the_post(); ?>
 				</div>
 			</div>
 		</div>
-		<div class="videoplay">
-
-		</div>
 		<div class="youtube-player-overlay">
 		    <div class="youtube-player-overlay__video">
-		        <iframe id="youtube-player" class="youtube-player-overlay__player" src="https://www.youtube.com/embed/<?php echo $parsed ?>"  width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<div class="youtube-player-overlay__video-aspecter">
+		        	<iframe id="youtube-player" class="youtube-player-overlay__player" src="https://www.youtube.com/embed/<?php echo $parsed ?>?enablejsapi=1"  width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+				<!-- <div class="youtube-player-overlay__description">
+					<?php // echo get_field('description'); ?>
+				</div> -->
 		        <div class="youtube-player-overlay__close">
-		            X
+		            x
 		        </div>
 		    </div>
 		</div>
-
 	</article>
 	<!-- /article -->
 
