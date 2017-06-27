@@ -36,6 +36,11 @@
         background-color: $aside-bg;
         color: $aside-txt;
         padding: 20px;
+        box-sizing: border-box;
+
+        &--fullwidth {
+            flex: 1 0 100%;
+        }
 
         a {
             color: $aside-url;

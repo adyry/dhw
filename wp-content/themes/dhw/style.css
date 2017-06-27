@@ -197,7 +197,11 @@ h2 > a {
     flex: 0 0 200px;
     background-color: rgba(0, 0, 0, 0.3);
     color: #e7e7e7;
-    padding: 20px; }
+    padding: 20px;
+    box-sizing: border-box; }
+    .main-aside-wrapper__aside--fullwidth {
+      -ms-flex: 1 0 100%;
+      flex: 1 0 100%; }
     .main-aside-wrapper__aside a {
       color: #cbcbcb; }
       .main-aside-wrapper__aside a:hover {
@@ -227,7 +231,7 @@ h2 > a {
     object-fit: cover; }
   .post-view__excerpt {
     margin: 10px 0; }
-  .post-view__meta {
+  .post-view__meta, .vidarch__meta {
     text-align: right;
     font-style: italic; }
 
@@ -259,6 +263,75 @@ blockquote:before {
     bottom: 0;
     background-color: rgba(117, 167, 189, 0.54);
     width: 100%; }
+
+.youtube-player-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.5);
+  z-index: 1000;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white; }
+  .youtube-player-overlay--active {
+    display: -ms-flexbox;
+    display: flex; }
+
+.vidarch__archive-title {
+  text-align: center;
+  margin: 15px 0 35px 0;
+  line-height: 1em; }
+
+.vidarch__post {
+  margin-bottom: 50px; }
+
+.vidarch__post::nth-child(2) {
+  -ms-flex-order: -1;
+  order: -1;
+  background-color: pink; }
+
+.vidarch__vid-wrapper {
+  display: -ms-flexbox;
+  display: flex; }
+
+.vidarch__thumbnail-wrap {
+  -ms-flex: 0 1 55%;
+  flex: 0 1 55%; }
+
+.vidarch__title-and-text-wrap {
+  -ms-flex: 1 0 45%;
+  flex: 1 0 45%;
+  padding: 0 0 0 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.vidarch__description {
+  display: block;
+  line-height: 1.3em;
+  letter-spacing: 0.5px;
+  text-align: justify; }
+
+.vidarch__title a {
+  margin: inherit;
+  line-height: inherit;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-decoration: none; }
+
+.vidarch__meta {
+  margin-top: 10px; }
+
+.vidarch__thumbnail {
+  width: 100%; }
 
 .sidebar_widget, .footer_widget {
   display: -ms-flexbox;
@@ -300,3 +373,5 @@ blockquote:before {
 
 .wrapper {
   width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

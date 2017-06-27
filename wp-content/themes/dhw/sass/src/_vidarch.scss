@@ -1,0 +1,59 @@
+.vidarch {
+
+    &__archive-title {
+        text-align: center;
+        margin: 15px 0 35px 0;
+        line-height: 1em;
+    }
+
+    &__post {
+        margin-bottom: 50px;
+    }
+
+    &__post::nth-child(2) {
+        order:-1;
+        background-color: pink;
+    }
+
+    &__vid-wrapper {
+        display: flex;
+
+    }
+
+    &__thumbnail-wrap {
+        flex: 0 1 55%;
+    }
+
+    &__title-and-text-wrap {
+        flex: 1 0 45%;
+        padding: 0 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__description {
+        display: block;
+        line-height: 1.3em;
+        letter-spacing: 0.5px;
+        text-align: justify;
+    }
+
+    &__title a {
+        margin: inherit;
+        line-height: inherit;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+
+
+    &__meta {
+        @extend .post-view__meta;
+        margin-top: 10px;
+    }
+
+    &__thumbnail {
+        width: 100%;
+    }
+}

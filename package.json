@@ -1,16 +1,17 @@
 {
   "name": "gulp-environment",
   "version": "1.0.0",
-  "description": "Gulp environment with haml, sass, live preview, autoprefixer",
+  "description": "Gulp environment with sass, live preview, autoprefixer",
   "main": "gulp-environment",
   "dependencies": {
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.0",
     "browser-sync": "^2.18.2",
     "gulp-sass": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1"
-  },
-  "devDependencies": {
-    "gulp-concat": "^2.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

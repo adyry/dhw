@@ -1,0 +1,36 @@
+.post-view {
+    margin-top: 10px;
+
+    &__image {
+        width: 100%;
+        max-width: 1000px;
+        max-height: 400px;
+        object-fit: cover; 
+    }
+
+    &__excerpt {
+        margin: 10px 0;
+
+    }
+
+    &__meta {
+        text-align: right;
+        font-style: italic;
+    }
+}
+
+blockquote {
+    padding-left: 40px;
+    position: relative;
+}
+
+blockquote:before {
+    font-family: Georgia, serif;
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    color: #7a7a7a;
+}
