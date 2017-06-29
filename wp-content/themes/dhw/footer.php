@@ -1,5 +1,5 @@
 
-	<?php get_template_part('aside'); ?>
+	
 
 </div>
 			<footer class="footer" role="contentinfo">

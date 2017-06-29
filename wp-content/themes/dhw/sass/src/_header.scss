@@ -20,13 +20,13 @@ $menu-h: 40px;
         }
     }
 
-    &__text-and-menu {
-        flex: 1;
+    &__text-and-desc {
+        display: none;
     }
 
     &__text {
         padding: 0 0 10px;
-        display: none;
+        text-align: center;
     }
 
     &__home {
@@ -36,28 +36,28 @@ $menu-h: 40px;
         display: block;
         font-family: 'Abril Fatface', cursive;
         font-size: 40px;
+        line-height: 1em;
     }
 
     &__description {
         color: $header-desc;
         font-size: 18px;
-
     }
 
     &__menu-placeholder {
-        flex-basis: 100%;
+        order:1;
         height: $menu-h;
     }
 
     &__menu {
-        flex-basis: 100%;
         display: flex;
-        justify-content: flex-start;
+        flex-direction: column;
         background-color: $menu-bg;
         z-index: 999;
         height: $menu-h;
 
         &--fixed {
+            flex-direction: row;
             position: fixed;
             top: 0;
             left: 0;
@@ -74,7 +74,7 @@ $menu-h: 40px;
         }
 
         .menu-item {
-            padding: 8px 6px;
+            padding: 20px;
             position: relative;
             display: flex;
             align-items: center;
@@ -128,5 +128,12 @@ $menu-h: 40px;
             filter: invert(100%);
         }
     }
+}
 
+@media all and (max-width : 1024px) {
+    .header {
+        &__menu {
+            flex-direction: row;
+        }
+    }
 }

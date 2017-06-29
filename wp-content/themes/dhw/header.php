@@ -23,39 +23,39 @@
         </script>
 
 	</head>
-	<body <?php body_class(); ?>
-
-		<div class="wrapper">
-			<header class="header clear" role="banner">
-					<div class="header__logo">
-						<a href="<?php echo home_url(); ?>" class="header__logo">
-							<img src="<?php header_image(); ?>"
-								height="<?php echo get_custom_header()->height; ?>"
-								width="<?php echo get_custom_header()->width; ?>" alt="" />
-						</a>
-					</div>
-					<div class="header__text-and-menu">
-						<div class="header__text">
-							<a class="header__home" href="<?php echo home_url(); ?>">
-						       <?php bloginfo('name'); ?>
-						    </a>
-							<span class="header__description">
-							  <?php bloginfo('description'); ?>
-					  		</span>
-						</div>
-						<div class="header__menu-placeholder">
-							<ul class="header__menu" role="navigation">
-								<li class="header__fixed-logo">
-									<a href="<?php echo home_url(); ?>">
-										<img src="<?php header_image(); ?>"
-											height="40px"
-											width="40px" alt="" />
-									</a>
-								</li>
-								<?php html5blank_nav(); ?>
-							</ul>
-						</div>
-					</div>
-			</header>
-
+	<body <?php body_class(); ?>>
+		<header class="header clear" role="banner">
+			<div class="header__logo">
+				<a href="<?php echo home_url(); ?>" class="header__logo">
+					<img src="<?php header_image(); ?>"
+						height="<?php echo get_custom_header()->height; ?>"
+						width="<?php echo get_custom_header()->width; ?>" alt="" />
+				</a>
+			</div>
+			<div class="header__text-and-desc">
+				<div class="header__text">
+					<a class="header__home" href="<?php echo home_url(); ?>">
+				       <?php bloginfo('name'); ?>
+				   	</a>
+					<span class="header__description">
+					  <?php bloginfo('description'); ?>
+			  		</span>
+				</div>
+			</div>
+		</header>
 	<div class="main-aside-wrapper">
+
+		<nav class="header__menu-placeholder">
+			<ul class="header__menu" role="navigation">
+				<li class="header__fixed-logo">
+					<a href="<?php echo home_url(); ?>">
+						<img src="<?php header_image(); ?>"
+							height="40px"
+							width="40px" alt="" />
+					</a>
+				</li>
+				<?php html5blank_nav(); ?>
+			</ul>
+		</nav>
+
+		<?php get_template_part('aside'); ?>
