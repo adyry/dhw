@@ -46,43 +46,34 @@ $menu-h: 40px;
 
     &__menu-placeholder {
         order:1;
-        height: $menu-h;
     }
 
     &__menu {
         display: flex;
         flex-direction: column;
-        background-color: $menu-bg;
-        z-index: 999;
-        height: $menu-h;
 
         &--fixed {
-            flex-direction: row;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            background-color: $menu-bg-fixed;
         }
 
         a {
             text-decoration: none;
             color: $menu-item-txt;
             cursor: pointer;
+        }
+
+        > .menu-item {
+            padding: 10px 20px;
             display: block;
-            width: 100%;
-        }
-
-        .menu-item {
-            padding: 20px;
-            position: relative;
-            display: flex;
-            align-items: center;
             background-color: $menu-item;
+            text-align: right;
+            position: relative;
         }
 
-        .menu-item:hover {
+        > .menu-item:hover {
             background-color: $menu-item-hover;
+            cursor: pointer;
             > a {
                 color: $menu-item-hover-txt;
             }
@@ -93,6 +84,38 @@ $menu-h: 40px;
             }
         }
 
+        .sub-menu {
+            z-index: 2;
+            position: absolute;
+            background-color: $menu-submenu;
+            top: 0;
+            right: 0;
+            transform: translate(100%, 0);
+            visibility: hidden;
+            opacity:0;
+            transition: opacity 1s ease;
+            min-width: 100px;
+            padding: 10px;
+
+            a {
+                color: $menu-submenu-txt;
+            }
+
+            > .menu-item {
+                text-align: left;
+                padding: 5px 10px;
+            }
+
+            > .menu-item:hover {
+                background-color: $menu-item-hover;
+                cursor: pointer;
+
+                > a {
+                    color: $menu-item-hover-txt;
+                }
+            }
+        }
+
         .current-menu-item, .current-menu-ancestor {
             background-color: $menu-item-active;
             box-sizing: border-box;
@@ -100,40 +123,6 @@ $menu-h: 40px;
             > a {
                 color: $menu-item-active-txt;
             }
-        }
-
-
-        .sub-menu {
-            position: absolute;
-            background-color: $menu-submenu;
-
-            top: $menu-h;
-            left: 0;
-            position:absolute;
-            visibility:hidden;
-            opacity:0;
-            transition: opacity 400ms ease;
-            min-width: 170px;
-            padding: 10px;
-
-            a {
-                color: $menu-submenu-txt;
-            }
-        }
-    }
-
-    &__fixed-logo {
-        display: none;
-        img {
-            filter: invert(100%);
-        }
-    }
-}
-
-@media all and (max-width : 1024px) {
-    .header {
-        &__menu {
-            flex-direction: row;
         }
     }
 }

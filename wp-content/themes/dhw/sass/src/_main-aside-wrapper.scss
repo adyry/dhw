@@ -1,10 +1,8 @@
 .main-aside-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    padding: 0 20px;
+    padding: 0 10px;
     max-width: $max-width;
     margin: 0 auto 20px auto;
-    align-items: flex-start;
 
     div {
         box-sizing: border-box;
@@ -25,41 +23,41 @@
             }
         }
 
-        .post-edit-link {
+        // .post-edit-link {
             // position: absolute;
             // top: 2%;
             // right: 2%;
-        }
+        // }
     }
 
-    &__aside {
-        order:3;
-        flex: 0 0 $aside-width;
-        background-color: $aside-bg;
-        color: $aside-txt;
-        padding: 20px;
-        box-sizing: border-box;
-
-        &--fullwidth {
-            flex: 1 0 100%;
-        }
-
-        a {
-            color: $aside-url;
-
-            &:hover {
-                color: $aside-url-hover;
-            }
-        }
-    }
+    // &__aside {
+    //     order:3;
+    //     flex: 0 0 $aside-width;
+    //     background-color: $aside-bg;
+    //     color: $aside-txt;
+    //     padding: 20px;
+    //     box-sizing: border-box;
+    //
+    //     &--fullwidth {
+    //         flex: 1 0 100%;
+    //     }
+    //
+    //     a {
+    //         color: $aside-url;
+    //
+    //         &:hover {
+    //             color: $aside-url-hover;
+    //         }
+    //     }
+    // }
 }
 
 @media all and (max-width : 1024px) {
-    .main-aside-wrapper {
-        &__aside, &__main {
-            margin-left: 0;
-            flex: 1 0 100%;
-            box-sizing: border-box;
-        }
-    }
+    // .main-aside-wrapper {
+    //     &__aside, &__main {
+    //         margin-left: 0;
+    //         flex: 1 0 100%;
+    //         box-sizing: border-box;
+    //     }
+    // }
 }

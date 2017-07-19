@@ -44,18 +44,8 @@
 			</div>
 		</header>
 	<div class="main-aside-wrapper">
-
 		<nav class="header__menu-placeholder">
 			<ul class="header__menu" role="navigation">
-				<li class="header__fixed-logo">
-					<a href="<?php echo home_url(); ?>">
-						<img src="<?php header_image(); ?>"
-							height="40px"
-							width="40px" alt="" />
-					</a>
-				</li>
 				<?php html5blank_nav(); ?>
 			</ul>
 		</nav>
-
-		<?php get_template_part('aside'); ?>

@@ -8,4 +8,4 @@
 		</section>
 	</main>
 
-<?php get_footer( 'noaside' ); ?>
+<?php get_footer(); ?>

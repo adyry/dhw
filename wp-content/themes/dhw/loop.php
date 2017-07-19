@@ -1,3 +1,4 @@
+
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
@@ -6,7 +7,7 @@
 		<h2>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 		</h2>
-
+		
 		<?php if ( has_post_thumbnail()) : ?>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php the_post_thumbnail(array(),array('class' => "post-view__image")); ?>
@@ -17,8 +18,6 @@
 
 		<div class="post-view__excerpt">
 			<blockquote>
-
-
 			<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 			</blockquote>
 		</div>

@@ -107,83 +107,67 @@ h2, h2 > a {
     font-size: 18px; }
   .header__menu-placeholder {
     -ms-flex-order: 1;
-    order: 1;
-    height: 40px; }
+    order: 1; }
   .header__menu {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column;
-    background-color: #651e1e;
-    z-index: 999;
-    height: 40px; }
+    flex-direction: column; }
     .header__menu--fixed {
-      -ms-flex-direction: row;
-      flex-direction: row;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #442b2b; }
+      top: 0; }
     .header__menu a {
       text-decoration: none;
       color: #e7e7e7;
-      cursor: pointer;
+      cursor: pointer; }
+    .header__menu > .menu-item {
+      padding: 10px 20px;
       display: block;
-      width: 100%; }
-    .header__menu .menu-item {
-      padding: 20px;
-      position: relative;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: none; }
-    .header__menu .menu-item:hover {
-      background-color: #6c5959; }
-      .header__menu .menu-item:hover > a {
+      background-color: none;
+      text-align: right;
+      position: relative; }
+    .header__menu > .menu-item:hover {
+      background-color: #6c5959;
+      cursor: pointer; }
+      .header__menu > .menu-item:hover > a {
         color: #e7e7e7; }
-      .header__menu .menu-item:hover > ul {
+      .header__menu > .menu-item:hover > ul {
         visibility: visible;
         opacity: 1; }
+    .header__menu .sub-menu {
+      z-index: 2;
+      position: absolute;
+      background-color: #cbcbcb;
+      top: 0;
+      right: 0;
+      transform: translate(100%, 0);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 1s ease;
+      min-width: 100px;
+      padding: 10px; }
+      .header__menu .sub-menu a {
+        color: #442b2b; }
+      .header__menu .sub-menu > .menu-item {
+        text-align: left;
+        padding: 5px 10px; }
+      .header__menu .sub-menu > .menu-item:hover {
+        background-color: #6c5959;
+        cursor: pointer; }
+        .header__menu .sub-menu > .menu-item:hover > a {
+          color: #e7e7e7; }
     .header__menu .current-menu-item, .header__menu .current-menu-ancestor {
       background-color: #e7e7e7;
       box-sizing: border-box; }
       .header__menu .current-menu-item > a, .header__menu .current-menu-ancestor > a {
         color: #651e1e; }
-    .header__menu .sub-menu {
-      position: absolute;
-      background-color: #cbcbcb;
-      top: 40px;
-      left: 0;
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 400ms ease;
-      min-width: 170px;
-      padding: 10px; }
-      .header__menu .sub-menu a {
-        color: #442b2b; }
-  .header__fixed-logo {
-    display: none; }
-    .header__fixed-logo img {
-      filter: invert(100%); }
-
-@media all and (max-width: 1024px) {
-  .header__menu {
-    -ms-flex-direction: row;
-    flex-direction: row; } }
 
 .main-aside-wrapper {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 0 20px;
+  padding: 0 10px;
   max-width: 1400px;
-  margin: 0 auto 20px auto;
-  -ms-flex-align: start;
-  align-items: flex-start; }
+  margin: 0 auto 20px auto; }
   .main-aside-wrapper div {
     box-sizing: border-box; }
   .main-aside-wrapper__main {
@@ -198,29 +182,6 @@ h2, h2 > a {
       color: #6c5959; }
       .main-aside-wrapper__main a:hover {
         color: #651e1e; }
-  .main-aside-wrapper__aside {
-    -ms-flex-order: 3;
-    order: 3;
-    -ms-flex: 0 0 200px;
-    flex: 0 0 200px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #e7e7e7;
-    padding: 20px;
-    box-sizing: border-box; }
-    .main-aside-wrapper__aside--fullwidth {
-      -ms-flex: 1 0 100%;
-      flex: 1 0 100%; }
-    .main-aside-wrapper__aside a {
-      color: #cbcbcb; }
-      .main-aside-wrapper__aside a:hover {
-        color: #ececec; }
-
-@media all and (max-width: 1024px) {
-  .main-aside-wrapper__aside, .main-aside-wrapper__main {
-    margin-left: 0;
-    -ms-flex: 1 0 100%;
-    flex: 1 0 100%;
-    box-sizing: border-box; } }
 
 .post-view {
   margin-top: 10px; }

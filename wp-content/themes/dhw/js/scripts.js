@@ -5,6 +5,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 jQuery(document).ready(function( $ ) {
     menu_docker('header__menu');
+    widthConstrain('header__menu-placeholder', 'header__menu');
 });
 
 function onYouTubeIframeAPIReady() {
@@ -26,8 +27,7 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-
-menu_docker = (cssClassName) => {
+const menu_docker = (cssClassName) => {
     const docked = cssClassName+'--fixed'
     const nav = $('.'+cssClassName);
     const offset = nav.offset()['top'];
@@ -41,4 +41,8 @@ menu_docker = (cssClassName) => {
             $('.header__fixed-logo').hide();
         }
     });
+}
+
+const widthConstrain = (parent, child) => {
+    $('.' + parent).width($('.' + child).width());
 }
