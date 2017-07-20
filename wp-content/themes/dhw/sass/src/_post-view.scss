@@ -3,9 +3,10 @@
 
     &__image {
         width: 100%;
+        height: 100%;
         max-width: 1000px;
         max-height: 400px;
-        object-fit: cover; 
+        object-fit: cover;
     }
 
     &__excerpt {

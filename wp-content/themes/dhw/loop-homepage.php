@@ -9,7 +9,7 @@ function get_string_between($string, $start, $end){
 }
 
 $args = array(
-	'post_type' => array('post', 'video_post', 'page')
+	'post_type' => array('post', 'video_post')
 );
 $query = new WP_Query( $args );
 
@@ -65,7 +65,32 @@ if ( $query->have_posts() ) {
 			</article>
 		<?php } else {	?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(array("post-view","homepage-tile")); ?>>
-				<h2>
+				<div class="vidarch__vid-wrapper">
+					<div class="vidarch__home-thumbnail">
+						<?php if ( has_post_thumbnail()) : ?>
+							<?php the_post_thumbnail(array(),array('class' => "post-view__image")); ?>
+						<?php endif; ?>
+					</div>
+					<div class="vidarch__title-and-text-wrap">
+						<div class="vidarch__title-and-text">
+							<h2 class="vidarch__title">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+							</h2>
+							<span class="vidarch__description">
+								<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
+							</span>
+						</div>
+						<div class="vidarch__meta">
+							<span class="date"><?php the_time('j F Y'); ?>,</span>
+							<span class="author"> <?php the_author_posts_link(); ?>.</span><br />
+							<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave comment', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+							<?php edit_post_link(); ?>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- <h2>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 				</h2>
 				<?php if ( has_post_thumbnail()) : ?>
@@ -85,7 +110,7 @@ if ( $query->have_posts() ) {
 					<span class="author"> <?php the_author_posts_link(); ?>.</span><br />
 					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave comment', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
 					<?php edit_post_link(); ?>
-				</div>
+				</div> -->
 			</article>
 		<?php
 		}

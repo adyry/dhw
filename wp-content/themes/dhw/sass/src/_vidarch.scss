@@ -29,6 +29,10 @@
         }
     }
 
+    &__home-thumbnail {
+        flex: 0 1 30%;
+    }
+
     &__thumbnail-figure {
         position: relative;
     }

@@ -1,12 +1,13 @@
-@import './src/_reset';
-@import './src/_vars';
+@import './src/reset';
+@import './src/vars';
 
 @import './src/body';
 @import './src/footer';
 @import './src/header';
 @import './src/homepage-tile';
 @import './src/main-aside-wrapper';
-@import './src/posts';
+@import './src/post-view';
+@import './src/single-view';
 @import './src/subpage-tile';
 @import './src/youtube-player-overlay';
 @import './src/vidarch';

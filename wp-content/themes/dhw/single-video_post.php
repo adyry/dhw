@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="main-aside-wrapper__main" role="main">
+<main class="main-aside-wrapper__main main-aside-wrapper__main--addcolors" role="main">
 	<!-- section -->
 	<section>
 
