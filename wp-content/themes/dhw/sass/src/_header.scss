@@ -55,6 +55,7 @@ $menu-h: 40px;
         &--fixed {
             position: fixed;
             top: 0;
+            z-index: -1;
         }
 
         a {
@@ -64,16 +65,21 @@ $menu-h: 40px;
         }
 
         > .menu-item {
-            padding: 10px 20px;
+
             display: block;
             background-color: $menu-item;
             text-align: right;
             position: relative;
+
+            > a {
+                padding: 10px 20px;
+                display: block;
+            }
         }
 
         > .menu-item:hover {
             background-color: $menu-item-hover;
-            cursor: pointer;
+
             > a {
                 color: $menu-item-hover-txt;
             }
@@ -103,12 +109,17 @@ $menu-h: 40px;
 
             > .menu-item {
                 text-align: left;
-                padding: 5px 10px;
+
+
+                > a {
+                    padding: 5px 10px;
+                    display: block;
+                    margin-right: 10px;
+                }
             }
 
             > .menu-item:hover {
                 background-color: $menu-item-hover;
-                cursor: pointer;
 
                 > a {
                     color: $menu-item-hover-txt;
