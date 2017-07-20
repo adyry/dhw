@@ -58,6 +58,16 @@ if (function_exists('add_theme_support'))
     add_theme_support('post-formats', array( 'video' ) );
 }
 
+
+function dfi_posttype_book ( $dfi_id, $post_id ) {
+  $post = get_post($post_id);
+  if ( 'video_post' === $post->post_type ) {
+    return ?><img src="https://img.youtube.com/vi/<?php echo $parsed ?>/maxresdefault.jpg" class="vidarch__thumbnail">;<?php // the image id
+  }
+  return $dfi_id; // the original featured image id
+}
+add_filter( 'dfi_thumbnail_id', 'dfi_posttype_book', 10, 2 );
+
 /*------------------------------------*\
 	Functions
 \*------------------------------------*/

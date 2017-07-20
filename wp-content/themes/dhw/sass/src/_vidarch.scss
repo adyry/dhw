@@ -33,6 +33,18 @@
         position: relative;
     }
 
+    &__thumbnail {
+        width: 100%;
+        height: 100%;
+        filter: blur(3px) brightness(50%);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            filter: blur(0px) brightness(100%);
+        }
+    }
+
     &__play-icon {
         background: url(./img/play.png) no-repeat center center;
         position: absolute;
@@ -78,16 +90,7 @@
         margin-top: 10px;
     }
 
-    &__thumbnail {
-        width: 100%;
-        filter: blur(3px) brightness(50%);
-        transition: all 0.5s ease-in-out;
-        cursor: pointer;
 
-        &:hover {
-            filter: blur(0px) brightness(100%);
-        }
-    }
 }
 
 @media all and (max-width : $sm-breakpoint) {

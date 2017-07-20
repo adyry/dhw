@@ -11,9 +11,12 @@
     &__main {
         order:2;
         flex: 1;
-        background-color: $post-bg;
-        color: $post-col;
-        padding: 20px;
+
+        &--addcolors {
+            background-color: $post-bg;
+            color: $post-col;
+            padding: 20px;
+        }
 
         a {
             color: $post-a;
