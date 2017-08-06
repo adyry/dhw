@@ -52,10 +52,20 @@ $menu-h: 40px;
         display: flex;
         flex-direction: column;
 
+        @media all and (max-width : $sm-breakpoint) {
+            flex-direction: row;
+        }
+
         &--fixed {
             position: fixed;
             top: 0;
-            z-index: -1;
+            z-index: 999;
+
+            @media all and (max-width : $sm-breakpoint) {
+                width: 100%;
+                background-color: $wine;
+                border-bottom: 1px solid $wine;
+            }
         }
 
         a {
@@ -102,6 +112,13 @@ $menu-h: 40px;
             transition: opacity 1s ease;
             min-width: 100px;
             padding: 10px;
+
+            @media all and (max-width : $sm-breakpoint) {
+                top: inherit;
+                right: inherit;
+                left: 0;
+                transform: none;
+            }
 
             a {
                 color: $menu-submenu-txt;

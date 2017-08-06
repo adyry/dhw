@@ -1,64 +1,63 @@
-'use strict';
-
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-jQuery(document).ready(function ($) {
-    var menu = menu_docker('header__menu');
-    var constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
+jQuery(document).ready(function( $ ) {
+    const menu = menu_docker('header__menu');
+    const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
     if (location.pathname.split("/")[2]) {
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
     }
 });
 
 function onYouTubeIframeAPIReady() {
-    var overlays = Array.from(document.getElementsByClassName('youtube-player-overlay'));
-    var containers = Array.from(document.getElementsByClassName('youtube-player-overlay__player'));
-    var placeholders = Array.from(document.getElementsByClassName('vidarch__thumbnail-figure'));
-    var player = [];
-    containers.map(function (item, i) {
+    const overlays = Array.from(document.getElementsByClassName('youtube-player-overlay'));
+    const containers = Array.from(document.getElementsByClassName('youtube-player-overlay__player'));
+    const placeholders = Array.from(document.getElementsByClassName('vidarch__thumbnail-figure'));
+    const player = [];
+    containers.map((item, i) => {
         player.push(new YT.Player(item));
-        placeholders[i].addEventListener("click", function () {
+        placeholders[i].addEventListener("click", () => {
             overlays[i].className += ' youtube-player-overlay--active';
             player[i].playVideo();
         });
-        overlays[i].addEventListener("click", function () {
+        overlays[i].addEventListener("click", () => {
             player[i].pauseVideo();
             overlays[i].className = 'youtube-player-overlay';
         });
     });
 }
 
-var menu_docker = function menu_docker(cssClassName) {
+const menu_docker = (cssClassName) => {
 
-    var docked = cssClassName + '--fixed';
-    var $nav = $('.' + cssClassName);
-    var offset = $nav.offset()['top'];
-    var $window = $(window);
+    const docked = cssClassName+'--fixed'
+    const $nav = $('.'+cssClassName);
+    const offset = $nav.offset()['top'];
+    const $window = $(window);
     if ($window.scrollTop() > offset) {
         $nav.addClass(docked);
     } else {
         $nav.removeClass(docked);
     }
-    $window.scroll(function () {
+    $window.scroll(function() {
         if ($window.scrollTop() > offset) {
             $nav.addClass(docked);
         } else {
             $nav.removeClass(docked);
+
         }
     });
-};
+}
 
-var widthConstrain = function widthConstrain(parent, child) {
+const widthConstrain = (parent, child) => {
     if ($(window).width() > 768) {
         $('.' + parent).width($('.' + child).width());
     }
-    $(window).resize(function () {
+    $(window).resize(() => {
         if ($(window).width() > 768) {
             $('.' + parent).width($('.' + child).width());
         }
-    });
-};
-//# sourceMappingURL=scripts.js.map
+    })
+
+}

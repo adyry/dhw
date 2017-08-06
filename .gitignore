@@ -16,6 +16,7 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 wp-includes
+html5blank-stable
 /.htaccess
 /license.txt
 /readme.html

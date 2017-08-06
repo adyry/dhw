@@ -4,6 +4,10 @@
     max-width: $max-width;
     margin: 0 auto 20px auto;
 
+    @media all and (max-width : $sm-breakpoint) {
+        flex-direction: column;   
+    }
+
     div {
         box-sizing: border-box;
     }
@@ -53,14 +57,7 @@
     //         }
     //     }
     // }
-}
 
-@media all and (max-width : 1024px) {
-    // .main-aside-wrapper {
-    //     &__aside, &__main {
-    //         margin-left: 0;
-    //         flex: 1 0 100%;
-    //         box-sizing: border-box;
-    //     }
-    // }
+
+
 }
