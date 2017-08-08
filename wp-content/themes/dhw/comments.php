@@ -19,6 +19,12 @@
 
 <?php endif; ?>
 
-<?php comment_form(); ?>
+
+
+<?php
+
+
+?>
+<?php comment_form($args); ?>
 
 </div>

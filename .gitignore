@@ -3,7 +3,8 @@ node_modules/
 wp-admin/
 wp-content/plugins
 wp-content/index.php
-wp-content/themes/twentyseventeen
+wp-content/themes/
+!wp-content/themes/dhw
 wp-content/themes/index.php
 wp-config.php
 wp-content/advanced-cache.php

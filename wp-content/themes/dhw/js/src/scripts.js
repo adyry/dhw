@@ -6,8 +6,11 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 jQuery(document).ready(function( $ ) {
     const menu = menu_docker('header__menu');
     const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
-    if (location.pathname.split("/")[2]) {
+    if (location.pathname.split("/")[2]) { //change to 1 on deploy to live
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
+    }
+    if (location.pathname.split("/")[2] == 'blog') { //change to 1 on deploy to live
+
     }
 });
 
@@ -30,7 +33,6 @@ function onYouTubeIframeAPIReady() {
 }
 
 const menu_docker = (cssClassName) => {
-
     const docked = cssClassName+'--fixed'
     const $nav = $('.'+cssClassName);
     const offset = $nav.offset()['top'];

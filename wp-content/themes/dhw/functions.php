@@ -131,7 +131,7 @@ function html5blank_styles()
 {
     wp_register_style('mh', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('mh'); // Enqueue it!
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Abril+Fatface|Old+Standard+TT|Raleway:300,300i,400', false );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:500|Raleway', false );
 
 }
 
@@ -292,15 +292,15 @@ function html5blankgravatar ($avatar_defaults)
     return $avatar_defaults;
 }
 
-// // Threaded Comments
-// function enable_threaded_comments()
-// {
-//     if (!is_admin()) {
-//         if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-//             wp_enqueue_script('comment-reply');
-//         }
-//     }
-// }
+// Threaded Comments
+function enable_threaded_comments()
+{
+    if (!is_admin()) {
+        if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+            wp_enqueue_script('comment-reply');
+        }
+    }
+}
 
 // Custom Comments Callback
 function html5blankcomments($comment, $args, $depth)
@@ -321,26 +321,32 @@ function html5blankcomments($comment, $args, $depth)
 	<?php if ( 'div' != $args['style'] ) : ?>
 	<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 	<?php endif; ?>
-	<div class="comment-author vcard">
-	<?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['180'] ); ?>
-	<?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-	</div>
-<?php if ($comment->comment_approved == '0') : ?>
-	<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
-	<br />
-<?php endif; ?>
+	<div class="comments__comment">
+        <div class="comments__avatar">
+            <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['180'] ); ?>
+        </div>
+	<div class="comments__body">
+        <?php printf(__('<cite class="comments__author">%s,</cite>'), get_comment_author_link()) ?>
+        <?php if ($comment->comment_approved == '0') : ?>
+        	<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
+        	<br />
+        <?php endif; ?>
+        <div class="comments__meta"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
+    		<?php
+    			printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
+    		?>
+    	</div>
+        <div class="comments__text">
+            <?php comment_text() ?>
+        </div>
 
-	<div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
-		<?php
-			printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
-		?>
-	</div>
+        <div class="comments__reply">
+    	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+    	</div>
 
-	<?php comment_text() ?>
+    </div>
+    </div>
 
-	<div class="reply">
-	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-	</div>
 	<?php if ( 'div' != $args['style'] ) : ?>
 	</div>
 	<?php endif; ?>
@@ -350,10 +356,18 @@ function html5blankcomments($comment, $args, $depth)
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
 
+function comment_field_to_bottom( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+
+add_filter( 'comment_form_fields', 'comment_field_to_bottom' );
 // Add Actions
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
 // add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
-// add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
+add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
@@ -462,6 +476,66 @@ function video_post() {
 
 }
 add_action( 'init', 'video_post', 0 );
+
+
+/**
+ * Extend WordPress search to include custom fields
+ *
+ * https://adambalee.com
+ */
+
+/**
+ * Join posts and postmeta tables
+ *
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
+ */
+function cf_search_join( $join ) {
+    global $wpdb;
+
+    if ( is_search() ) {
+        $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+    }
+
+    return $join;
+}
+add_filter('posts_join', 'cf_search_join' );
+
+/**
+ * Modify the search query with posts_where
+ *
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
+ */
+function cf_search_where( $where ) {
+    global $pagenow, $wpdb;
+
+    if ( is_search() ) {
+        $where = preg_replace(
+            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+
+    return $where;
+}
+add_filter( 'posts_where', 'cf_search_where' );
+
+/**
+ * Prevent duplicates
+ *
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
+ */
+function cf_search_distinct( $where ) {
+    global $wpdb;
+
+    if ( is_search() ) {
+        return "DISTINCT";
+    }
+
+    return $where;
+}
+add_filter( 'posts_distinct', 'cf_search_distinct' );
+
+
+
 
 // add_action('wp_insert_post', 'set_default_custom_fields');
 // function set_default_custom_fields($post_id){

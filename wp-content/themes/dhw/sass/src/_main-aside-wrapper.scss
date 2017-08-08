@@ -5,7 +5,7 @@
     margin: 0 auto 20px auto;
 
     @media all and (max-width : $sm-breakpoint) {
-        flex-direction: column;   
+        flex-direction: column;
     }
 
     div {
@@ -29,35 +29,5 @@
                 color: $post-a-hov;
             }
         }
-
-        // .post-edit-link {
-            // position: absolute;
-            // top: 2%;
-            // right: 2%;
-        // }
     }
-
-    // &__aside {
-    //     order:3;
-    //     flex: 0 0 $aside-width;
-    //     background-color: $aside-bg;
-    //     color: $aside-txt;
-    //     padding: 20px;
-    //     box-sizing: border-box;
-    //
-    //     &--fullwidth {
-    //         flex: 1 0 100%;
-    //     }
-    //
-    //     a {
-    //         color: $aside-url;
-    //
-    //         &:hover {
-    //             color: $aside-url-hover;
-    //         }
-    //     }
-    // }
-
-
-
 }

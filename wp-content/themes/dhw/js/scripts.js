@@ -9,7 +9,11 @@ jQuery(document).ready(function ($) {
     var menu = menu_docker('header__menu');
     var constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
     if (location.pathname.split("/")[2]) {
+        //change to 1 on deploy to live
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
+    }
+    if (location.pathname.split("/")[2] == 'blog') {//change to 1 on deploy to live
+
     }
 });
 
@@ -32,7 +36,6 @@ function onYouTubeIframeAPIReady() {
 }
 
 var menu_docker = function menu_docker(cssClassName) {
-
     var docked = cssClassName + '--fixed';
     var $nav = $('.' + cssClassName);
     var offset = $nav.offset()['top'];
