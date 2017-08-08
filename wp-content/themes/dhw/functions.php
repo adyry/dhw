@@ -131,7 +131,7 @@ function html5blank_styles()
 {
     wp_register_style('mh', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('mh'); // Enqueue it!
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:500|Raleway', false );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Oswald|Raleway', false );
 
 }
 
