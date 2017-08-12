@@ -25,6 +25,6 @@
 
 
 ?>
-<?php comment_form($args); ?>
+<?php comment_form(); ?>
 
 </div>
