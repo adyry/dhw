@@ -323,7 +323,7 @@ function html5blankcomments($comment, $args, $depth)
 	<?php endif; ?>
 	<div class="comments__comment">
         <div class="comments__avatar">
-            <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['180'] ); ?>
+            <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size']); ?>
         </div>
 	<div class="comments__body">
         <?php printf(__('<cite class="comments__author">%s,</cite>'), get_comment_author_link()) ?>
