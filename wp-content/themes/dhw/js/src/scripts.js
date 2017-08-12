@@ -1,6 +1,6 @@
-var tag = document.createElement('script');
+const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
+const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 jQuery(document).ready(function( $ ) {
@@ -33,7 +33,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 const menu_docker = (cssClassName) => {
-    const docked = cssClassName+'--fixed'
+    const docked = cssClassName+'--fixed';
     const $nav = $('.'+cssClassName);
     const offset = $nav.offset()['top'];
     const $window = $(window);
@@ -50,16 +50,15 @@ const menu_docker = (cssClassName) => {
 
         }
     });
-}
+};
 
 const widthConstrain = (parent, child) => {
-    if ($(window).width() > 768) {
+    if ($(window).outerWidth() >= 768) {
         $('.' + parent).width($('.' + child).width());
     }
     $(window).resize(() => {
-        if ($(window).width() > 768) {
+        if ($(window).outerWidth() >= 768) {
             $('.' + parent).width($('.' + child).width());
         }
     })
-
-}
+};

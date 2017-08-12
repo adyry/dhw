@@ -55,11 +55,11 @@ var menu_docker = function menu_docker(cssClassName) {
 };
 
 var widthConstrain = function widthConstrain(parent, child) {
-    if ($(window).width() > 768) {
+    if ($(window).outerWidth() >= 768) {
         $('.' + parent).width($('.' + child).width());
     }
     $(window).resize(function () {
-        if ($(window).width() > 768) {
+        if ($(window).outerWidth() >= 768) {
             $('.' + parent).width($('.' + child).width());
         }
     });

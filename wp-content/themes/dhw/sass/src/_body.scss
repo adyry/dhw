@@ -1,6 +1,5 @@
 body {
-    font-family: sans-serif;
-    background-color: $bg;
+    background: $bg;
     font-family: 'Raleway', sans-serif;
     * {
         line-height: 1.2em;
@@ -8,7 +7,7 @@ body {
 }
 
 h1 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', Arial, sans-serif;
     font-size: 36px;
     font-weight: 500;
     letter-spacing: 1px;
