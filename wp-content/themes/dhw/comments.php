@@ -19,12 +19,6 @@
 
 <?php endif; ?>
 
-
-
-<?php
-
-
-?>
 <?php comment_form(); ?>
 
 </div>
