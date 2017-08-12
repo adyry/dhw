@@ -1,4 +1,6 @@
 *.log
+package-lock.json
+.idea/
 node_modules/
 wp-admin/
 wp-content/plugins
