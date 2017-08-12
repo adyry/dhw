@@ -56,11 +56,17 @@ var menu_docker = function menu_docker(cssClassName) {
 
 var widthConstrain = function widthConstrain(parent, child) {
     if ($(window).outerWidth() >= 768) {
-        $('.' + parent).width($('.' + child).width());
+        var width = $('.' + child).width();
+        $('.' + parent).width(width);
+        $('.header__text').css('padding-left', width);
     }
     $(window).resize(function () {
         if ($(window).outerWidth() >= 768) {
-            $('.' + parent).width($('.' + child).width());
+            var _width = $('.' + child).width();
+            $('.' + parent).width(_width);
+            $('.header__text').css('padding-left', _width);
+        } else {
+            $('.header__text').css('padding-left', 0);
         }
     });
 };

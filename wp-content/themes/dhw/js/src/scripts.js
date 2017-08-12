@@ -54,11 +54,17 @@ const menu_docker = (cssClassName) => {
 
 const widthConstrain = (parent, child) => {
     if ($(window).outerWidth() >= 768) {
-        $('.' + parent).width($('.' + child).width());
+        const width = $('.' + child).width();
+        $('.' + parent).width(width);
+        $('.header__text').css('padding-left', width)
     }
     $(window).resize(() => {
         if ($(window).outerWidth() >= 768) {
-            $('.' + parent).width($('.' + child).width());
+            const width = $('.' + child).width();
+            $('.' + parent).width(width);
+            $('.header__text').css('padding-left', width)
+        } else {
+            $('.header__text').css('padding-left', 0)
         }
     })
 };
