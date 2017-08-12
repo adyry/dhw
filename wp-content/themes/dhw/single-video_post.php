@@ -26,7 +26,7 @@
 					<div class="vidarch__thumbnail-wrap vidarch__thumbnail-wrap--single">
 						<figure class="vidarch__thumbnail-figure" title="<?php the_title(); ?>">
 							<?php if ( has_post_thumbnail()) : ?>
-									<?php the_post_thumbnail(array(),array('class' => "vidarch__thumbnail")); ?>
+									<?php the_post_thumbnail('full',array('class' => "vidarch__thumbnail")); ?>
 							<?php else: ?>
 								<img src="https://img.youtube.com/vi/<?php echo $parsed ?>/maxresdefault.jpg" class="vidarch__thumbnail">
 							<?php endif; ?>

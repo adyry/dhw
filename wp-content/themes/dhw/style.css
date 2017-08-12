@@ -64,73 +64,91 @@ h2, h2 > a {
 
 .comments {
   font-size: 14px; }
-  .comments__comment {
-    display: -ms-flexbox;
-    display: flex;
-    margin: 20px 0;
-    background-color: #ececec;
-    padding: 10px;
-    box-shadow: 2px 2px 2px #888888; }
-  .comments__avatar {
-    margin-right: 10px; }
-  .comments__body {
-    -ms-flex: 1;
-    flex: 1; }
-  .comments__author {
-    font-size: 16px; }
-  .comments__meta {
-    font-size: 12px;
-    margin-bottom: 8px;
-    font-style: italic; }
-  .comments__text {
-    font-size: 14px; }
-  .comments__reply {
-    margin-top: 8px; }
-  .comments .comment-respond {
-    margin-top: 30px;
-    padding: 10px;
-    box-shadow: 2px 2px 2px #888888;
-    border: 1px solid #888888; }
-  .comments li.comment li.comment {
-    margin-left: 30px; }
-  .comments li.comment > .comment-respond {
-    margin-left: 30px; }
-  .comments .comment-form p {
-    margin: 5px 0; }
-  .comments .comment-form .comment-form-url label,
-  .comments .comment-form .comment-form-email label,
-  .comments .comment-form .comment-form-author label {
-    margin-right: 4px;
-    vertical-align: bottom;
-    display: inline-block;
-    width: 55px; }
-  .comments .comment-form .comment-form-url input,
-  .comments .comment-form .comment-form-email input,
-  .comments .comment-form .comment-form-author input {
-    border: none;
-    background: none;
-    border-bottom: 1px solid #746e6e; }
-  .comments .comment-form .comment-form-comment {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column; }
-    .comments .comment-form .comment-form-comment textarea {
-      resize: vertical;
-      height: 100px;
-      border: 1px solid #888888; }
-    .comments .comment-form .comment-form-comment label {
-      margin: 8px 0 5px; }
-  .comments .comment-form .form-submit input {
-    border: none;
-    padding: 10px;
-    background-color: #cbcbcb;
-    color: #282828;
-    transition: all 0.5s; }
-    .comments .comment-form .form-submit input:hover {
-      background-color: #746e6e;
-      color: #ececec;
-      cursor: pointer; }
+
+.comments__comment {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+  background-color: #ececec;
+  padding: 10px;
+  box-shadow: 2px 2px 2px #888888; }
+
+.comments__avatar {
+  margin-right: 10px; }
+
+.comments__body {
+  -ms-flex: 1;
+  flex: 1; }
+
+.comments__author {
+  font-size: 16px; }
+
+.comments__meta {
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-style: italic; }
+
+.comments__text {
+  font-size: 14px; }
+
+.comments__reply {
+  margin-top: 8px; }
+
+.comments .comment-respond {
+  margin-top: 30px;
+  padding: 10px;
+  box-shadow: 2px 2px 2px #888888;
+  border: 1px solid #888888; }
+
+.comments li.comment li.comment {
+  margin-left: 30px; }
+
+.comments li.comment > .comment-respond {
+  margin-left: 30px; }
+
+.comments .comment-form p {
+  margin: 5px 0; }
+
+.comments .comment-form .comment-form-url label,
+.comments .comment-form .comment-form-email label,
+.comments .comment-form .comment-form-author label {
+  margin-right: 4px;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 55px; }
+
+.comments .comment-form .comment-form-url input,
+.comments .comment-form .comment-form-email input,
+.comments .comment-form .comment-form-author input {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #746e6e; }
+
+.comments .comment-form .comment-form-comment {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.comments .comment-form .comment-form-comment textarea {
+  resize: vertical;
+  height: 100px;
+  border: 1px solid #888888; }
+
+.comments .comment-form .comment-form-comment label {
+  margin: 8px 0 5px; }
+
+.comments .comment-form .form-submit input {
+  border: none;
+  padding: 10px;
+  background-color: #cbcbcb;
+  color: #282828;
+  transition: all 0.5s; }
+
+.comments .comment-form .form-submit input:hover {
+  background-color: #746e6e;
+  color: #ececec;
+  cursor: pointer; }
 
 .footer {
   background-color: #cbcbcb;
