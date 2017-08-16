@@ -3,7 +3,7 @@ package-lock.json
 .idea/
 node_modules/
 wp-admin/
-wp-content/plugins
+wp-content/plugins/akismet
 wp-content/index.php
 wp-content/themes/index.php
 wp-config.php
