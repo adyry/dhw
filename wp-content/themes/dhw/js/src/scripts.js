@@ -3,17 +3,6 @@ tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-jQuery(document).ready(function( $ ) {
-    const menu = menu_docker('header__menu');
-    const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
-    if (location.pathname.split("/")[2]) { //change to 1 on deploy to live
-        $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
-    }
-    if (location.pathname.split("/")[2] == 'blog') { //change to 1 on deploy to live
-
-    }
-});
-
 function onYouTubeIframeAPIReady() {
     const overlays = Array.from(document.getElementsByClassName('youtube-player-overlay'));
     const containers = Array.from(document.getElementsByClassName('youtube-player-overlay__player'));
@@ -31,6 +20,18 @@ function onYouTubeIframeAPIReady() {
         });
     });
 }
+
+jQuery(document).ready(function( $ ) {
+    const menu = menu_docker('header__menu');
+    const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
+    const initSearch = searchPopup();
+    if (location.pathname.split("/")[2]) { //change to 1 on deploy to live
+        $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
+    }
+    if (location.pathname.split("/")[2] == 'blog') { //change to 1 on deploy to live
+
+    }
+});
 
 const menu_docker = (cssClassName) => {
     const docked = cssClassName+'--fixed';
@@ -66,5 +67,19 @@ const widthConstrain = (parent, child) => {
         } else {
             $('.header__text').css('padding-left', 0)
         }
+    })
+};
+
+const searchPopup = () => {
+    $('.menu-item-search-click').click((e) => {
+        $('.search__overlay').css('display','flex');
+        $('.search__wrapper .search-input').focus();
+    });
+    $('.search__overlay, .search__close').click((e) => {
+        e.stopPropagation();
+        $('.search__overlay').css('display','none');
+    });
+    $('form.search').click((e) => {
+        e.stopPropagation();
     })
 };

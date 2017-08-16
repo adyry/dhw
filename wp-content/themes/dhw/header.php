@@ -47,5 +47,19 @@
 		<nav class="header__menu-placeholder">
 			<ul class="header__menu" role="navigation">
 				<?php html5blank_nav(); ?>
+                <li class="menu-item menu-item-type-post_type_archive menu-item-search-click">
+                    <a href="#/">Search</a>
+                    <div class="search__overlay">
+                        <div class="search__wrapper">
+                            <form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
+                                <input class="search-input" type="search" name="s" placeholder="<?php _e( 'To search, type and hit enter.', 'html5blank' ); ?>">
+                                <button class="search-submit" type="submit" role="button"><?php _e( 'Search', 'html5blank' ); ?></button>
+                            </form>
+                            <div class="search__close">
+                                X
+                            </div>
+                        </div>
+                    </div>
+                </li>
 			</ul>
 		</nav>
