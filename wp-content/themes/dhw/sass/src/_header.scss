@@ -51,37 +51,47 @@ $menu-h: 40px;
 
     &__menu-placeholder {
         order:1;
-        width: 92px;
+
+        @media all and (min-width : $sm-breakpoint + 1) {
+            width: 92px;
+        }
     }
 
     &__menu {
         display: flex;
         flex-direction: column;
-        width: 92px;
+
+        @media all and (min-width : $sm-breakpoint + 1) {
+            width: 92px;
+        }
 
         @media all and (max-width : $sm-breakpoint) {
-            flex-direction: row;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: $skin;
+            z-index: 1000;
+            border-bottom: 1px solid $vd;
         }
 
         &--fixed {
             position: fixed;
             top: 0;
             z-index: 9;
-
-            @media all and (max-width : $sm-breakpoint) {
-                width: 100%;
-                background-color: $wine;
-                border-bottom: 1px solid $wine;
-                left: 0;
-                padding-left: 10px;
-                z-index: 10;
-            }
         }
 
         a {
             text-decoration: none;
             color: $menu-item-txt;
             cursor: pointer;
+
+            @media all and (max-width : $sm-breakpoint) {
+
+            }
+            @media all and (max-width : $sm-breakpoint) {
+                color: $vd;
+            }
         }
 
         > .menu-item {
@@ -90,43 +100,58 @@ $menu-h: 40px;
             text-align: center;
             position: relative;
 
+            @media all and (max-width : $sm-breakpoint) {
+                border: 2px solid $lt;
+            }
+
             > a {
-                padding: 10px 20px;
                 display: block;
+
+                @media all and (min-width : $sm-breakpoint + 1) {
+                    padding: 10px 20px;
+                }
+
+                @media all and (max-width : $sm-breakpoint) {
+                    padding: 5px;
+                }
             }
         }
 
-        > .menu-item:hover {
-            background-color: $menu-item-hover;
+        @media all and (min-width : $sm-breakpoint + 1) {
+            > .menu-item:hover {
+                background-color: $menu-item-hover;
 
-            > a {
-                color: $menu-item-hover-txt;
-            }
+                > a {
+                    color: $menu-item-hover-txt;
+                }
 
-            > ul {
-                visibility:visible;
-                opacity:1;
+                > ul {
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
         }
 
         .sub-menu {
-            z-index: 2;
-            position: absolute;
-            background-color: $menu-submenu;
-            top: 0;
-            right: 0;
-            transform: translate(100%, 0);
-            visibility: hidden;
-            opacity:0;
-            transition: opacity 1s ease;
             min-width: 100px;
-            padding: 10px;
+
+            @media all and (min-width : $sm-breakpoint + 1) {
+                z-index: 2;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate(100%, 0);
+                visibility: hidden;
+                opacity:0;
+                transition: opacity 1s ease;
+                padding: 10px;
+                background-color: $menu-submenu;
+            }
 
             @media all and (max-width : $sm-breakpoint) {
-                top: inherit;
-                right: inherit;
-                left: 0;
-                transform: none;
+                display: flex;
+                flex-wrap: wrap;
+                background-color: $mlt;
             }
 
             a {
@@ -143,22 +168,40 @@ $menu-h: 40px;
                 }
             }
 
-            > .menu-item:hover {
-                background-color: $menu-item-hover;
+            @media all and (min-width : $sm-breakpoint + 1) {
+                > .menu-item:hover {
+                    background-color: $menu-item-hover;
 
-                > a {
-                    color: $menu-item-hover-txt;
+                    > a {
+                        color: $menu-item-hover-txt;
+                    }
                 }
             }
         }
 
-        .current-menu-item, .current-menu-ancestor {
-            background-color: $menu-item-active;
-            box-sizing: border-box;
-
-            > a {
-                color: $menu-item-active-txt;
+        @media all and (max-width : $sm-breakpoint) {
+            > .current-menu-item {
+                background-color: $wine;
+                > a {
+                    color: $vlt;
+                }
+            }
+            .sub-menu .current-menu-item {
+                text-decoration: underline;
             }
         }
+
+        @media all and (min-width : $sm-breakpoint + 1) {
+            .current-menu-item, .current-menu-ancestor {
+                background-color: $menu-item-active;
+                box-sizing: border-box;
+
+                > a {
+                    color: $menu-item-active-txt;
+                }
+            }
+        }
+
+
     }
 }

@@ -32,17 +32,16 @@ jQuery(document).ready(function ($) {
         //change to 1 on deploy to live
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
     }
-    if (location.pathname.split("/")[2] == 'blog') {//change to 1 on deploy to live
+    if (location.pathname.split("/")[2] == 'blog') {} //change to 1 on deploy to live
 
-    }
-    var $touchMenu = $('.menu-item-185 > a');
-    $touchMenu.on('touchstart', function (e) {
-        e.preventDefault();
-        $touchMenu.siblings('ul').css({
-            visibility: 'visible',
-            opacity: 1
-        });
-    });
+    // const $touchMenu = $('.menu-item-185 > a');
+    // $touchMenu.on('touchstart', (e) => {
+    //     e.preventDefault();
+    //     $touchMenu.siblings('ul').css({
+    //         visibility:'visible',
+    //         opacity:1
+    //     })
+    // });
 });
 
 var menu_docker = function menu_docker(cssClassName) {

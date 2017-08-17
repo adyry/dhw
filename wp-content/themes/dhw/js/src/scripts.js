@@ -32,14 +32,14 @@ jQuery(document).ready(function( $ ) {
     if (location.pathname.split("/")[2] == 'blog') { //change to 1 on deploy to live
 
     }
-    const $touchMenu = $('.menu-item-185 > a');
-    $touchMenu.on('touchstart', (e) => {
-        e.preventDefault();
-        $touchMenu.siblings('ul').css({
-            visibility:'visible',
-            opacity:1
-        })
-    });
+    // const $touchMenu = $('.menu-item-185 > a');
+    // $touchMenu.on('touchstart', (e) => {
+    //     e.preventDefault();
+    //     $touchMenu.siblings('ul').css({
+    //         visibility:'visible',
+    //         opacity:1
+    //     })
+    // });
 
 });
 
