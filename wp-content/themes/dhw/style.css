@@ -181,12 +181,14 @@ h2, h2 > a {
     display: block; }
   .header__menu-placeholder {
     -ms-flex-order: 1;
-    order: 1; }
+    order: 1;
+    width: 92px; }
   .header__menu {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 92px; }
     @media all and (max-width: 768px) {
       .header__menu {
         -ms-flex-direction: row;

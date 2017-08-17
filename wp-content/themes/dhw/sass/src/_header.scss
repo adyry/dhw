@@ -51,11 +51,13 @@ $menu-h: 40px;
 
     &__menu-placeholder {
         order:1;
+        width: 92px;
     }
 
     &__menu {
         display: flex;
         flex-direction: column;
+        width: 92px;
 
         @media all and (max-width : $sm-breakpoint) {
             flex-direction: row;
