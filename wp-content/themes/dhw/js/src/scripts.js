@@ -25,7 +25,6 @@ const breakpoint = 768;
 
 jQuery(document).ready(function( $ ) {
     const menu = menu_docker('header__menu');
-    // const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
     const initSearch = searchPopup();
     if (location.pathname.split("/")[2]) { //change to 1 on deploy to live
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
@@ -63,23 +62,6 @@ const menu_docker = (cssClassName) => {
         }
     });
 };
-
-// const widthConstrain = (parent, child) => {
-//     if ($(window).outerWidth() > breakpoint) {
-//         const width = $('.' + child).width();
-//         $('.' + parent).width(width);
-//         $('.header__text').css('padding-left', width)
-//     }
-//     $(window).resize(() => {
-//         if ($(window).outerWidth() > breakpoint) {
-//             const width = $('.' + child).width();
-//             $('.' + parent).width(width);
-//             $('.header__text').css('padding-left', width)
-//         } else {
-//             $('.header__text').css('padding-left', 0)
-//         }
-//     })
-// };
 
 const searchPopup = () => {
     $('.menu-item-search-click').click(() => {

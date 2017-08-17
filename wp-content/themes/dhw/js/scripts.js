@@ -27,7 +27,6 @@ var breakpoint = 768;
 
 jQuery(document).ready(function ($) {
     var menu = menu_docker('header__menu');
-    // const constrainMenuPlaceholder = widthConstrain('header__menu-placeholder', 'header__menu');
     var initSearch = searchPopup();
     if (location.pathname.split("/")[2]) {
         //change to 1 on deploy to live
@@ -65,23 +64,6 @@ var menu_docker = function menu_docker(cssClassName) {
         }
     });
 };
-
-// const widthConstrain = (parent, child) => {
-//     if ($(window).outerWidth() > breakpoint) {
-//         const width = $('.' + child).width();
-//         $('.' + parent).width(width);
-//         $('.header__text').css('padding-left', width)
-//     }
-//     $(window).resize(() => {
-//         if ($(window).outerWidth() > breakpoint) {
-//             const width = $('.' + child).width();
-//             $('.' + parent).width(width);
-//             $('.header__text').css('padding-left', width)
-//         } else {
-//             $('.header__text').css('padding-left', 0)
-//         }
-//     })
-// };
 
 var searchPopup = function searchPopup() {
     $('.menu-item-search-click').click(function () {
