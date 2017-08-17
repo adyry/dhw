@@ -11,9 +11,7 @@ $menu-h: 40px;
     &__logo {
         display: none;
         padding: 20px 0;
-        //display: block;
         overflow: hidden;
-        // width: 450px;
 
         img {
             width: 100%;
@@ -86,9 +84,6 @@ $menu-h: 40px;
             color: $menu-item-txt;
             cursor: pointer;
 
-            @media all and (max-width : $sm-breakpoint) {
-
-            }
             @media all and (max-width : $sm-breakpoint) {
                 color: $vd;
             }
