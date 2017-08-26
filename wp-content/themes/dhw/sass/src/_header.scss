@@ -8,6 +8,9 @@ $menu-w: 92px;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
+    @media all and (max-width : $sm-breakpoint) {
+        margin-top: $trigger-h;
+    }
 
     &__logo {
         display: none;
