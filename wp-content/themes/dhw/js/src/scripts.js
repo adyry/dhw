@@ -24,7 +24,7 @@ function onYouTubeIframeAPIReady() {
 const breakpoint = 768;
 
 jQuery(document).ready(function( $ ) {
-    const menu = menu_docker('header__menu');
+    const menu = menu_docker('menu');
     const initSearch = searchPopup();
     if (location.pathname.split("/")[2]) { //change to 1 on deploy to live
         $('ul.header__menu > li > a[href*="/' + location.pathname.split("/")[2] + '"]').parent().addClass('current-menu-item');
@@ -32,14 +32,11 @@ jQuery(document).ready(function( $ ) {
     if (location.pathname.split("/")[2] == 'blog') { //change to 1 on deploy to live
 
     }
-    // const $touchMenu = $('.menu-item-185 > a');
-    // $touchMenu.on('touchstart', (e) => {
-    //     e.preventDefault();
-    //     $touchMenu.siblings('ul').css({
-    //         visibility:'visible',
-    //         opacity:1
-    //     })
-    // });
+
+    $('.trigger__icon').click(function () {
+        $(this).toggleClass('is-open');
+        $('ul.menu').slideToggle();
+    });
 
 });
 

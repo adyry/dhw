@@ -1,6 +1,6 @@
+
+
 .menu {
-  display: flex;
-  flex-direction: column;
 
   a {
     text-decoration: none;
@@ -27,8 +27,18 @@
 
 @media all and (min-width : $sm-breakpoint + 1) {
   .menu {
+    display: block !important;
     width: $menu-w;
 
+    &__placeholder {
+      width: $menu-w;
+    }
+
+    &--fixed {
+      position: fixed;
+      top: 0;
+      z-index: 9;
+    }
 
     &__level-0 {
       text-align: center;
@@ -44,6 +54,7 @@
       > .sub-menu {
         opacity: 0;
         transition: all 0.5s ease;
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
       }
 
       &:hover {
@@ -98,20 +109,16 @@
 @media all and (max-width : $sm-breakpoint) {
   .menu {
     position: fixed;
-    top: 0;
+    top: $trigger-h;
     left: 0;
     width: 100%;
     background-color: $skin;
     z-index: 1000;
-    border-bottom: 1px solid $vd;
-    max-height: 90%;
+    border-bottom: 2px solid $lt;
+    max-height: 80%;
     overflow-y: auto;
+    display: none;
 
-    &--fixed {
-      position: fixed;
-      top: 0;
-      z-index: 9;
-    }
 
     a {
       color: $vd;
@@ -150,5 +157,8 @@
         }
       }
     }
+
+
+
   }
 }

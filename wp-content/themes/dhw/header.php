@@ -44,7 +44,11 @@
 			</div>
 		</header>
 	<div class="main-aside-wrapper">
+
 		<nav class="menu__placeholder">
+            <div class="trigger">
+                <button class="trigger__icon"><span></span></button>
+            </div>
 			<ul class="menu" role="navigation">
 				<?php html5blank_nav(); ?>
                 <li class="menu-item menu-item-type-post_type_archive menu-item-search-click menu__level-0">
@@ -61,5 +65,6 @@
                         </div>
                     </div>
                 </li>
+
 			</ul>
 		</nav>
