@@ -10,7 +10,11 @@ $menu-w: 92px;
     box-sizing: border-box;
 
     @media all and (max-width : $sm-breakpoint) {
-        margin-top: $trigger-h;
+        margin-top: $trigger-h + 15px;
+
+        &__text-and-desc {
+            display: none;
+        }
     }
 
     @media all and (min-width : $sm-breakpoint + 1) {

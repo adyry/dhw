@@ -59,50 +59,66 @@ table {
   z-index: 1000; }
   @media all and (max-width: 768px) {
     .trigger {
-      display: block; } }
+      display: -ms-flexbox;
+      display: flex; } }
   @media all and (min-width: 769px) {
     .trigger {
       display: none; } }
-
-.trigger__icon {
-  font-size: 48px;
-  width: 1em;
-  display: inline-block;
-  position: relative;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  outline: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  min-height: 1em; }
-  .trigger__icon span {
-    margin-top: -0.025em;
-    transition: 0.2s ease-in-out 0.2s; }
-  .trigger__icon:before, .trigger__icon:after {
-    transition: margin 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s; }
-  .trigger__icon:before {
-    content: "";
-    margin-top: -0.275em; }
-  .trigger__icon:after {
-    content: "";
-    margin-top: 0.225em; }
-  .trigger__icon.is-open span {
-    background-color: rgba(40, 40, 40, 0);
-    transition-delay: 0s; }
-  .trigger__icon.is-open:before, .trigger__icon.is-open:after {
-    margin-top: 0;
-    transition-delay: 0s, 0.25s, 0.25s; }
-  .trigger__icon.is-open:before {
-    transform: rotate(45deg); }
-  .trigger__icon.is-open:after {
-    transform: rotate(-45deg); }
+  .trigger__text-wrapper {
+    display: inline-block; }
+  .trigger__home {
+    margin: 4px;
+    text-decoration: none;
+    color: #282828;
+    display: block;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px; }
+  .trigger__description {
+    margin: 4px;
+    color: #282828;
+    font-size: 12px;
+    display: block; }
+  .trigger__icon {
+    font-size: 37px;
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    min-height: 1em;
+    min-width: 1em;
+    margin: 5px; }
+    .trigger__icon span {
+      margin-top: -0.025em;
+      transition: 0.2s ease-in-out 0.2s; }
+    .trigger__icon:before, .trigger__icon:after {
+      transition: margin 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s; }
+    .trigger__icon:before {
+      content: "";
+      margin-top: -0.275em; }
+    .trigger__icon:after {
+      content: "";
+      margin-top: 0.225em; }
+    .trigger__icon.is-open span {
+      background-color: rgba(40, 40, 40, 0);
+      transition-delay: 0s; }
+    .trigger__icon.is-open:before, .trigger__icon.is-open:after {
+      margin-top: 0;
+      transition-delay: 0s, 0.25s, 0.25s; }
+    .trigger__icon.is-open:before {
+      transform: rotate(45deg); }
+    .trigger__icon.is-open:after {
+      transform: rotate(-45deg); }
 
 body {
   background: #746e6e;
@@ -220,7 +236,9 @@ h2, h2 > a {
   box-sizing: border-box; }
   @media all and (max-width: 768px) {
     .header {
-      margin-top: 48px; } }
+      margin-top: 52px; }
+      .header__text-and-desc {
+        display: none; } }
   @media all and (min-width: 769px) {
     .header {
       padding-left: 102px; } }
@@ -355,7 +373,7 @@ h2, h2 > a {
 @media all and (max-width: 768px) {
   .menu {
     position: fixed;
-    top: 48px;
+    top: 37px;
     left: 0;
     width: 100%;
     background-color: #ffffff;

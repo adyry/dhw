@@ -48,6 +48,14 @@
 		<nav class="menu__placeholder">
             <div class="trigger">
                 <button class="trigger__icon"><span></span></button>
+                <div class="trigger__text-wrapper">
+                    <a class="trigger__home" href="<?php echo home_url(); ?>">
+                        <?php bloginfo('name'); ?>
+                    </a>
+                    <span class="trigger__description">
+					  <?php bloginfo('description'); ?>
+			  		</span>
+                </div>
             </div>
 			<ul class="menu" role="navigation">
 				<?php html5blank_nav(); ?>
