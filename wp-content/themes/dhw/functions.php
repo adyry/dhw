@@ -92,7 +92,7 @@ function html5blank_nav()
 		'link_before'     => '',
 		'link_after'      => '',
 		'items_wrap'      => '%3$s',
-		'depth'           => 2,
+		'depth'           => 3,
 		'walker'          => ''
 		)
 	);

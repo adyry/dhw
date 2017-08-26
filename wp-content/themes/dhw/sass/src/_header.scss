@@ -113,7 +113,7 @@ $menu-h: 40px;
         }
 
         @media all and (min-width : $sm-breakpoint + 1) {
-            > .menu-item:hover {
+            .menu-item:hover {
                 background-color: $menu-item-hover;
 
                 > a {
@@ -160,6 +160,10 @@ $menu-h: 40px;
                     padding: 5px 10px;
                     display: block;
                     margin-right: 10px;
+
+                    @media all and (max-width : $sm-breakpoint) {
+                        padding: 10px 20px;
+                    }
                 }
             }
 

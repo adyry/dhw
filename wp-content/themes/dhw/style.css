@@ -230,11 +230,11 @@ h2, h2 > a {
           .header__menu > .menu-item > a {
             padding: 10px 20px; } }
     @media all and (min-width: 769px) {
-      .header__menu > .menu-item:hover {
+      .header__menu .menu-item:hover {
         background-color: #464646; }
-        .header__menu > .menu-item:hover > a {
+        .header__menu .menu-item:hover > a {
           color: #ffffff; }
-        .header__menu > .menu-item:hover > ul {
+        .header__menu .menu-item:hover > ul {
           visibility: visible;
           opacity: 1; } }
     .header__menu .sub-menu {
@@ -266,6 +266,9 @@ h2, h2 > a {
           padding: 5px 10px;
           display: block;
           margin-right: 10px; }
+          @media all and (max-width: 768px) {
+            .header__menu .sub-menu > .menu-item > a {
+              padding: 10px 20px; } }
       @media all and (min-width: 769px) {
         .header__menu .sub-menu > .menu-item:hover {
           background-color: #464646; }
