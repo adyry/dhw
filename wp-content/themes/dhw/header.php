@@ -44,10 +44,10 @@
 			</div>
 		</header>
 	<div class="main-aside-wrapper">
-		<nav class="header__menu-placeholder">
-			<ul class="header__menu" role="navigation">
+		<nav class="menu__placeholder">
+			<ul class="menu" role="navigation">
 				<?php html5blank_nav(); ?>
-                <li class="menu-item menu-item-type-post_type_archive menu-item-search-click">
+                <li class="menu-item menu-item-type-post_type_archive menu-item-search-click menu__level-0">
                     <a href="#/">Search</a>
                     <div class="search__overlay">
                         <div class="search__wrapper">

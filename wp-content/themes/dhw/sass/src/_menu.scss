@@ -1,0 +1,147 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    color: $menu-item-txt;
+    cursor: pointer;
+    display: block;
+  }
+
+  &__level-0 {
+    display: block;
+    background-color: $menu-item;
+    text-align: center;
+    position: relative;
+  }
+
+  .sub-menu {
+    min-width: 100px;
+
+    a {
+      color: $menu-submenu-txt;
+    }
+
+    .menu-item {
+      text-align: left;
+
+      a {
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+
+
+@media all and (min-width : $sm-breakpoint + 1) {
+  .menu {
+    width: $menu-w;
+
+    &__level-0 {
+      > a {
+        padding: 10px 20px;
+      }
+    }
+
+    .menu-item:hover {
+      background-color: $menu-item-hover;
+
+      > a {
+        color: $menu-item-hover-txt;
+      }
+
+      > .sub-menu {
+        visibility: visible;
+        opacity: 1;
+
+        &:hover {
+          transition: opacity 1s ease 3s;
+        }
+      }
+    }
+
+    .sub-menu {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(100%, 0);
+      visibility: hidden;
+      opacity:0;
+      padding: 10px;
+      background-color: $menu-submenu;
+      transition: opacity 1s ease 0s;
+
+      > .menu-item:hover {
+        background-color: $menu-item-hover;
+
+        > a {
+          color: $menu-item-hover-txt;
+        }
+      }
+
+    }
+
+    .current-menu-item, .current-menu-ancestor {
+      background-color: $menu-item-active;
+      box-sizing: border-box;
+
+      > a {
+        color: $menu-item-active-txt;
+      }
+    }
+
+  }
+}
+
+
+@media all and (max-width : $sm-breakpoint) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $skin;
+    z-index: 1000;
+    border-bottom: 1px solid $vd;
+
+    &--fixed {
+      position: fixed;
+      top: 0;
+      z-index: 9;
+    }
+
+    a {
+      color: $vd;
+    }
+
+    &__level-0 {
+      border: 2px solid $lt;
+
+      > a {
+        padding: 10px 20px;
+      }
+    }
+
+    .sub-menu {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $mlt;
+
+      > .menu-item > a {
+        padding: 10px 20px;
+      }
+    }
+
+    > .current-menu-item {
+      background-color: $wine;
+      > a {
+        color: $vlt;
+      }
+    }
+    .sub-menu .current-menu-item {
+      text-decoration: underline;
+    }
+  }
+}

@@ -185,108 +185,6 @@ h2, h2 > a {
     @media all and (min-width: 769px) {
       .header__menu-placeholder {
         width: 92px; } }
-  .header__menu {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column; }
-    @media all and (min-width: 769px) {
-      .header__menu {
-        width: 92px; } }
-    @media all and (max-width: 768px) {
-      .header__menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        z-index: 1000;
-        border-bottom: 1px solid #282828; } }
-    .header__menu--fixed {
-      position: fixed;
-      top: 0;
-      z-index: 9; }
-    .header__menu a {
-      text-decoration: none;
-      color: #ffffff;
-      cursor: pointer; }
-      @media all and (max-width: 768px) {
-        .header__menu a {
-          color: #282828; } }
-    .header__menu > .menu-item {
-      display: block;
-      background-color: none;
-      text-align: center;
-      position: relative; }
-      @media all and (max-width: 768px) {
-        .header__menu > .menu-item {
-          border: 2px solid #cbcbcb; } }
-      .header__menu > .menu-item > a {
-        display: block; }
-        @media all and (min-width: 769px) {
-          .header__menu > .menu-item > a {
-            padding: 10px 20px; } }
-        @media all and (max-width: 768px) {
-          .header__menu > .menu-item > a {
-            padding: 10px 20px; } }
-    @media all and (min-width: 769px) {
-      .header__menu .menu-item:hover {
-        background-color: #464646; }
-        .header__menu .menu-item:hover > a {
-          color: #ffffff; }
-        .header__menu .menu-item:hover > ul {
-          visibility: visible;
-          opacity: 1; } }
-    .header__menu .sub-menu {
-      min-width: 100px; }
-      @media all and (min-width: 769px) {
-        .header__menu .sub-menu {
-          z-index: 2;
-          position: absolute;
-          top: 0;
-          right: 0;
-          transform: translate(100%, 0);
-          visibility: hidden;
-          opacity: 0;
-          transition: opacity 1s ease;
-          padding: 10px;
-          background-color: #cbcbcb; } }
-      @media all and (max-width: 768px) {
-        .header__menu .sub-menu {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-          background-color: #ebebeb; } }
-      .header__menu .sub-menu a {
-        color: #282828; }
-      .header__menu .sub-menu > .menu-item {
-        text-align: left; }
-        .header__menu .sub-menu > .menu-item > a {
-          padding: 5px 10px;
-          display: block;
-          margin-right: 10px; }
-          @media all and (max-width: 768px) {
-            .header__menu .sub-menu > .menu-item > a {
-              padding: 10px 20px; } }
-      @media all and (min-width: 769px) {
-        .header__menu .sub-menu > .menu-item:hover {
-          background-color: #464646; }
-          .header__menu .sub-menu > .menu-item:hover > a {
-            color: #ffffff; } }
-    @media all and (max-width: 768px) {
-      .header__menu > .current-menu-item {
-        background-color: #746e6e; }
-        .header__menu > .current-menu-item > a {
-          color: #ececec; }
-      .header__menu .sub-menu .current-menu-item {
-        text-decoration: underline; } }
-    @media all and (min-width: 769px) {
-      .header__menu .current-menu-item, .header__menu .current-menu-ancestor {
-        background-color: #ffffff;
-        box-sizing: border-box; }
-        .header__menu .current-menu-item > a, .header__menu .current-menu-ancestor > a {
-          color: #746e6e; } }
 
 .homepage-tile {
   background-color: #ffffff;
@@ -320,6 +218,99 @@ h2, h2 > a {
       color: #464646; }
       .main-aside-wrapper__main a:hover {
         color: #746e6e; }
+
+.menu {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .menu a {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: block; }
+  .menu__level-0 {
+    display: block;
+    background-color: none;
+    text-align: center;
+    position: relative; }
+  .menu .sub-menu {
+    min-width: 100px; }
+    .menu .sub-menu a {
+      color: #282828; }
+    .menu .sub-menu .menu-item {
+      text-align: left; }
+      .menu .sub-menu .menu-item a {
+        padding: 5px 10px; }
+
+@media all and (min-width: 769px) {
+  .menu {
+    width: 92px; }
+    .menu__level-0 > a {
+      padding: 10px 20px; }
+    .menu .menu-item:hover {
+      background-color: #464646; }
+      .menu .menu-item:hover > a {
+        color: #ffffff; }
+      .menu .menu-item:hover > .sub-menu {
+        visibility: visible;
+        opacity: 1; }
+        .menu .menu-item:hover > .sub-menu:hover {
+          transition: opacity 1s ease 3s; }
+    .menu .sub-menu {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(100%, 0);
+      visibility: hidden;
+      opacity: 0;
+      padding: 10px;
+      background-color: #cbcbcb;
+      transition: opacity 1s ease 0s; }
+      .menu .sub-menu > .menu-item:hover {
+        background-color: #464646; }
+        .menu .sub-menu > .menu-item:hover > a {
+          color: #ffffff; }
+    .menu .current-menu-item, .menu .current-menu-ancestor {
+      background-color: #ffffff;
+      box-sizing: border-box; }
+      .menu .current-menu-item > a, .menu .current-menu-ancestor > a {
+        color: #746e6e; } }
+
+@media all and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    border-bottom: 1px solid #282828; }
+    .menu--fixed {
+      position: fixed;
+      top: 0;
+      z-index: 9; }
+    .menu a {
+      color: #282828; }
+    .menu__level-0 {
+      border: 2px solid #cbcbcb; }
+      .menu__level-0 > a {
+        padding: 10px 20px; }
+    .menu .sub-menu {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      background-color: #ebebeb; }
+      .menu .sub-menu > .menu-item > a {
+        padding: 10px 20px; }
+    .menu > .current-menu-item {
+      background-color: #746e6e; }
+      .menu > .current-menu-item > a {
+        color: #ececec; }
+    .menu .sub-menu .current-menu-item {
+      text-decoration: underline; } }
 
 .post-view {
   margin-top: 10px; }

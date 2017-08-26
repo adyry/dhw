@@ -364,6 +364,24 @@ function comment_field_to_bottom( $fields ) {
     return $fields;
 }
 
+add_filter('wp_nav_menu_objects' , 'my_menu_class');
+function my_menu_class($menu) {
+    $level = 0;
+    $stack = array('0');
+    foreach($menu as $key => $item) {
+        while($item->menu_item_parent != array_pop($stack)) {
+            $level--;
+        }
+        $level++;
+        $stack[] = $item->menu_item_parent;
+        $stack[] = $item->ID;
+        $menu[$key]->classes[] = 'menu__level-'. ($level - 1);
+    }
+    return $menu;
+}
+
+
+
 add_filter( 'comment_form_fields', 'comment_field_to_bottom' );
 // Add Actions
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
