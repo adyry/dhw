@@ -144,7 +144,7 @@ h2, h2 > a {
     color: #746e6e; }
 
 .header {
-  padding: 0 10px;
+  padding: 0 10px 0 102px;
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;

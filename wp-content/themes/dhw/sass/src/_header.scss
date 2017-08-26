@@ -1,7 +1,7 @@
-$menu-h: 40px;
+$menu-w: 92px;
 
 .header {
-    padding: 0 10px;
+    padding: 0 10px 0 $menu-w + 10px;
     display: flex;
     margin: 0 auto;
     max-width: $max-width;
@@ -60,7 +60,7 @@ $menu-h: 40px;
         flex-direction: column;
 
         @media all and (min-width : $sm-breakpoint + 1) {
-            width: 92px;
+            width: $menu-w;
         }
 
         @media all and (max-width : $sm-breakpoint) {
