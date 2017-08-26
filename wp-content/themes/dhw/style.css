@@ -152,7 +152,8 @@ h2, h2 > a {
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  box-sizing: border-box; }
   .header__logo {
     display: none;
     padding: 20px 0;

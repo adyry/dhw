@@ -7,6 +7,7 @@ $menu-w: 92px;
     max-width: $max-width;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
 
     &__logo {
         display: none;
