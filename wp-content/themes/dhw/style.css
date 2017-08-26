@@ -79,6 +79,21 @@ table {
     color: #282828;
     font-size: 12px;
     display: block; }
+  .trigger__toolbar {
+    -ms-flex: 1 1;
+    flex: 1 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+  .trigger__search {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 10px; }
   .trigger__icon {
     font-size: 37px;
     display: inline-block;
@@ -373,7 +388,7 @@ h2, h2 > a {
 @media all and (max-width: 768px) {
   .menu {
     position: fixed;
-    top: 37px;
+    top: 50px;
     left: 0;
     width: 100%;
     background-color: #ffffff;

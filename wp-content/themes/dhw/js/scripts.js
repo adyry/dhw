@@ -64,6 +64,7 @@ var menu_docker = function menu_docker(cssClassName) {
 
 var searchPopup = function searchPopup() {
     $('.menu-item-search-click').click(function () {
+        console.log('click');
         $('.search__overlay').css('display', 'flex');
         $('.search__wrapper .search-input').focus();
     });

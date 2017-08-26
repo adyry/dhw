@@ -56,23 +56,28 @@
 					  <?php bloginfo('description'); ?>
 			  		</span>
                 </div>
+                <div class="trigger__toolbar">
+                    <div class="trigger__search menu-item-search-click">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/icons/magnifying-glass.png" width="24px"/>
+                    </div>
+                </div>
             </div>
 			<ul class="menu" role="navigation">
 				<?php html5blank_nav(); ?>
                 <li class="menu-item menu-item-type-post_type_archive menu-item-search-click menu__level-0">
                     <a href="#/">Search</a>
-                    <div class="search__overlay">
-                        <div class="search__wrapper">
-                            <form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
-                                <input class="search-input" type="search" name="s" placeholder="<?php _e( 'To search, type and hit enter.', 'html5blank' ); ?>">
-                                <button class="search-submit" type="submit" role="button"><?php _e( 'Search', 'html5blank' ); ?></button>
-                            </form>
-                            <div class="search__close">
-                                X
-                            </div>
-                        </div>
-                    </div>
                 </li>
 
 			</ul>
 		</nav>
+        <div class="search__overlay">
+            <div class="search__wrapper">
+                <form class="search" method="get" action="<?php echo home_url(); ?>" role="search">
+                    <input class="search-input" type="search" name="s" placeholder="<?php _e( 'To search, type and hit enter.', 'html5blank' ); ?>">
+                    <button class="search-submit" type="submit" role="button"><?php _e( 'Search', 'html5blank' ); ?></button>
+                </form>
+                <div class="search__close">
+                    X
+                </div>
+            </div>
+        </div>
