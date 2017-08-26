@@ -227,36 +227,35 @@ h2, h2 > a {
   .menu a {
     text-decoration: none;
     color: #ffffff;
-    cursor: pointer;
     display: block; }
   .menu__level-0 {
-    display: block;
     background-color: none;
-    text-align: center;
     position: relative; }
   .menu .sub-menu {
-    min-width: 100px; }
+    min-width: 100px;
+    text-align: left; }
     .menu .sub-menu a {
-      color: #282828; }
-    .menu .sub-menu .menu-item {
-      text-align: left; }
-      .menu .sub-menu .menu-item a {
-        padding: 5px 10px; }
+      color: #282828;
+      padding: 5px 10px; }
 
 @media all and (min-width: 769px) {
   .menu {
     width: 92px; }
-    .menu__level-0 > a {
-      padding: 10px 20px; }
+    .menu__level-0 {
+      text-align: center; }
+      .menu__level-0 a {
+        padding: 10px 20px; }
+    .menu .menu-item > .sub-menu {
+      opacity: 0;
+      transition: all 0.5s ease; }
     .menu .menu-item:hover {
       background-color: #464646; }
+      .menu .menu-item:hover > .sub-menu {
+        opacity: 1;
+        transition: all 0.7s ease;
+        visibility: visible; }
       .menu .menu-item:hover > a {
         color: #ffffff; }
-      .menu .menu-item:hover > .sub-menu {
-        visibility: visible;
-        opacity: 1; }
-        .menu .menu-item:hover > .sub-menu:hover {
-          transition: opacity 1s ease 3s; }
     .menu .sub-menu {
       z-index: 2;
       position: absolute;
@@ -266,8 +265,7 @@ h2, h2 > a {
       visibility: hidden;
       opacity: 0;
       padding: 10px;
-      background-color: #cbcbcb;
-      transition: opacity 1s ease 0s; }
+      background-color: #cbcbcb; }
       .menu .sub-menu > .menu-item:hover {
         background-color: #464646; }
         .menu .sub-menu > .menu-item:hover > a {
@@ -286,7 +284,9 @@ h2, h2 > a {
     width: 100%;
     background-color: #ffffff;
     z-index: 1000;
-    border-bottom: 1px solid #282828; }
+    border-bottom: 1px solid #282828;
+    max-height: 90%;
+    overflow-y: auto; }
     .menu--fixed {
       position: fixed;
       top: 0;
@@ -296,21 +296,21 @@ h2, h2 > a {
     .menu__level-0 {
       border: 2px solid #cbcbcb; }
       .menu__level-0 > a {
-        padding: 10px 20px; }
+        font-weight: bold;
+        padding: 10px 10px; }
+      .menu__level-0.current-menu-item {
+        background-color: #746e6e; }
+        .menu__level-0.current-menu-item > a {
+          color: #ececec; }
     .menu .sub-menu {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
       background-color: #ebebeb; }
-      .menu .sub-menu > .menu-item > a {
+      .menu .sub-menu a {
         padding: 10px 20px; }
-    .menu > .current-menu-item {
-      background-color: #746e6e; }
-      .menu > .current-menu-item > a {
-        color: #ececec; }
-    .menu .sub-menu .current-menu-item {
-      text-decoration: underline; } }
+      .menu .sub-menu .current-menu-item > a {
+        font-weight: bold;
+        text-decoration: underline; }
+      .menu .sub-menu li .sub-menu {
+        padding-left: 15px; } }
 
 .post-view {
   margin-top: 10px; }

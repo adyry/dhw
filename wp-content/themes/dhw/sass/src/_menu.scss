@@ -5,30 +5,21 @@
   a {
     text-decoration: none;
     color: $menu-item-txt;
-    cursor: pointer;
     display: block;
   }
 
   &__level-0 {
-    display: block;
     background-color: $menu-item;
-    text-align: center;
     position: relative;
   }
 
   .sub-menu {
     min-width: 100px;
+    text-align: left;
 
     a {
       color: $menu-submenu-txt;
-    }
-
-    .menu-item {
-      text-align: left;
-
-      a {
-        padding: 5px 10px;
-      }
+      padding: 5px 10px;
     }
   }
 }
@@ -38,25 +29,34 @@
   .menu {
     width: $menu-w;
 
+
     &__level-0 {
-      > a {
+      text-align: center;
+
+      a {
         padding: 10px 20px;
       }
+
     }
 
-    .menu-item:hover {
-      background-color: $menu-item-hover;
-
-      > a {
-        color: $menu-item-hover-txt;
-      }
+    .menu-item {
 
       > .sub-menu {
-        visibility: visible;
-        opacity: 1;
+        opacity: 0;
+        transition: all 0.5s ease;
+      }
 
-        &:hover {
-          transition: opacity 1s ease 3s;
+      &:hover {
+        background-color: $menu-item-hover;
+
+        > .sub-menu {
+          opacity: 1;
+          transition: all 0.7s ease;
+          visibility: visible;
+        }
+
+        > a {
+          color: $menu-item-hover-txt;
         }
       }
     }
@@ -71,7 +71,6 @@
       opacity:0;
       padding: 10px;
       background-color: $menu-submenu;
-      transition: opacity 1s ease 0s;
 
       > .menu-item:hover {
         background-color: $menu-item-hover;
@@ -105,6 +104,8 @@
     background-color: $skin;
     z-index: 1000;
     border-bottom: 1px solid $vd;
+    max-height: 90%;
+    overflow-y: auto;
 
     &--fixed {
       position: fixed;
@@ -118,30 +119,36 @@
 
     &__level-0 {
       border: 2px solid $lt;
-
       > a {
-        padding: 10px 20px;
+        font-weight: bold;
+        padding: 10px 10px;
+      }
+
+      &.current-menu-item {
+        background-color: $wine;
+        > a {
+          color: $vlt;
+        }
       }
     }
 
     .sub-menu {
-      display: flex;
-      flex-wrap: wrap;
       background-color: $mlt;
 
-      > .menu-item > a {
+      a {
         padding: 10px 20px;
       }
-    }
 
-    > .current-menu-item {
-      background-color: $wine;
-      > a {
-        color: $vlt;
+      .current-menu-item > a {
+        font-weight: bold;
+        text-decoration: underline;
       }
-    }
-    .sub-menu .current-menu-item {
-      text-decoration: underline;
+
+      li {
+        .sub-menu {
+          padding-left: 15px;
+        }
+      }
     }
   }
 }
