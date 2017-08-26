@@ -602,10 +602,6 @@ blockquote:before {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%; }
 
-.vidarch__home-thumbnail {
-  -ms-flex: 0 1 30%;
-  flex: 0 1 30%; }
-
 .vidarch__thumbnail-figure {
   position: relative; }
 
