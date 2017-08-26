@@ -208,7 +208,7 @@ h2, h2 > a {
     color: #746e6e; }
 
 .header {
-  padding: 0 10px 0 102px;
+  padding: 0 10px;
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
@@ -221,6 +221,9 @@ h2, h2 > a {
   @media all and (max-width: 768px) {
     .header {
       margin-top: 48px; } }
+  @media all and (min-width: 769px) {
+    .header {
+      padding-left: 102px; } }
   .header__logo {
     display: none;
     padding: 20px 0;
